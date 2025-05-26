@@ -8,7 +8,8 @@ const mensagens = [
     "Give your project a creative boost!",
     "Perfect models for your game!",
     "Use amazing characters in your video!",
-    "Your ideas don't deserve to stay on paper!"
+    "Your ideas don't deserve to stay only on paper!",
+    "Bring the next idea that appears on someone's screen"
 ];
 
 // indice para controlar qual mensagem está sendo exibida

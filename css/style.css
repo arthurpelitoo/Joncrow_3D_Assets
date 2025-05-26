@@ -279,6 +279,99 @@ html, body {
     transform: translateY(-2px);
 }
 
+/* Special-Offer Section */
+
+.special-offer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--cardColors);
+    position: relative;
+    z-index: 3;
+}
+
+.special-offer .special-offer-btn{
+    border: 0;
+    width: 100%;
+    padding: 1.5em;
+    display: block;
+    color: var(--textColor) !important;
+    background-color: var(--terciaryColor);
+    font-family: var(--font-default);
+    font-size: medium;
+    text-decoration: none;
+    transition: ease-in-out 0.3s;
+}
+
+.special-offer .special-offer-btn:hover{
+    background-color: var(--accentHoverColor);
+    color: var(--btnTextColorhover) !important;
+}
+
+.special-offer .special-offer-collapse{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.special-offer .special-offer-collapse{
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.special-offer .special-offer-collapse.show{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.special-offer .special-offer-collapse .special-offer-card{
+    background-color: var(--mainColor);
+    transition: ease-in-out 0.3s;
+
+}
+
+.special-offer .special-offer-collapse .special-offer-card:hover{
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 0 20px var(--terciaryColor);
+}
+
+.special-offer .special-offer-collapse .special-offer-card img{
+    border-radius: 5px;
+}
+
+.special-offer .special-offer-collapse .special-offer-card .special-offer-card-body{
+    height: auto;
+}
+
+.special-offer .special-offer-collapse .special-offer-card .special-offer-card-body .card_title{
+    font: 1em var(--font-title);
+    color: var(--textColor);
+}
+
+.special-offer .special-offer-collapse .special-offer-card .special-offer-card-body .card_description{
+    font: 1em var(--font-default);
+    color: var(--textColor);
+}
+
+.special-offer .special-offer-collapse .special-offer-card .special-offer-card-body .card_btn{
+    border-radius: 5px;
+    padding: 0.5rem;
+    text-decoration: none;
+    background-color: var(--btnBackgroundCtaColor);
+    color: var(--btnTextColor);
+    font-family: var(--font-default);
+    font-size: large;
+    transition: ease-in-out 0.3s;
+    animation: glow 2s infinite ease-in-out;
+}
+
+.special-offer .special-offer-collapse .special-offer-card .special-offer-card-body .card_btn:hover{
+    background-color: var(--btnBackgroundCtaHoverColor);
+    color: var(--btnTextColorhover);
+}
+
 /* CARD SECTION */
 .card_section {
     background-color: var(--mainColor);
@@ -325,12 +418,12 @@ html, body {
 
 .card_section .card_section_content .card_section_align .card_organizing .card_item .card-body .card_title {
     font: 1em var(--font-title);
-    color: var(--btnTextColor);
+    color: var(--textColor);
 }
 
 .card_section .card_section_content .card_section_align .card_organizing .card_item .card-body .card_description {
     font: 1em var(--font-default);
-    color: var(--btnTextColor);
+    color: var(--textColor);
 }
 
 .card_section .card_section_content .card_section_align .card_organizing .card_item:hover {
@@ -378,7 +471,7 @@ html, body {
 }
 
 .section_category .section_category_container .section_category_align .card_organizing_category .card_item .card-body{
-    height: 100px;
+    height: 150px;
 }
 
 .section_category .section_category_container .section_category_align .card_organizing_category .card_item .card-body .card_title {
@@ -406,7 +499,7 @@ html, body {
 
 .section_cta_class .section_cta_title{
     width: 100%;
-    font: 1.4em var(--font-title);
+    font: 1.2em var(--font-title);
     color: var(--mainColor);
     padding: 1rem;
 }
@@ -587,7 +680,7 @@ html, body {
     flex-direction: column;
     justify-content: center;
     background: linear-gradient(1deg, var(--cardColors), var(--mainColor));
-    padding: 1rem 0.5rem;
+    padding: 9rem 0.5rem;
     position: relative;
     z-index: 2;
     overflow: hidden;
@@ -616,6 +709,12 @@ html, body {
 
 .section_finalcall .section_finalcall_title span{
     color: var(--terciaryColor);
+}
+
+@media(max-width: 500px){
+    .section_finalcall .section_finalcall_title span{
+        display: none;
+    }
 }
 
 .section_finalcall .section_finalcall_container{
@@ -680,6 +779,63 @@ html, body {
 .section_finalcall .section_finalcall_container .finalcall_btn_group .section_finalcall_btn2:hover{
     background-color: var(--btnBackgroundhover);
     color: var(--btnTextColorhover) !important;
+}
+
+/* footer */
+
+.footer{
+    background: linear-gradient(1deg, var(--cardColors), var(--mainColor));
+    height: fit-content;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer img{
+    width: 35%;
+}
+
+.footer a{
+    color: var(--terciaryColor);
+    font-size: 2.3em;
+    width: 2.3em;
+    text-decoration: none;
+    margin: 15px;
+    transition: all 0.3s;
+}
+
+.footer .footerClass .iconRedes a .itch-icon {
+    display: inline-block;
+    fill: var(--terciaryColor);
+    transition: all 0.3s;
+
+}
+
+.footer .footerClass .iconRedes a:hover .itch-icon{
+    fill: var(--accentHoverColor);
+}
+
+.footer a:hover{
+    color: var(--accentHoverColor);
+}
+
+.footer .iconRedes{
+    display: flex;
+    line-height: 30px;
+    color: var(--textColor);
+    font-family: var(--font-default);
+    align-items: center;
+    justify-content: center;
+}
+
+.footer .dev{
+    line-height: 30px;
+    color: var(--textColor);
+    font-family: var(--font-default);
+}
+
+.footer .footerClass{
+    text-align: center;
+    margin: auto;
 }
 
 /* responsive for pc and notebooks */
@@ -850,8 +1006,6 @@ html, body {
 .section_cta_class .section_cta_title{
     width: 80%;
     font: bold 1.4em var(--font-title);
-    color: var(--mainColor);
-    padding: 1rem;
 }
 
 .section_cta_class .section_cta{
@@ -961,6 +1115,13 @@ html, body {
 }
 .section_finalcall .section_finalcall_container{
     gap: 6rem;
+}
+
+.section_finalcall .section_finalcall_container .finalcall_btn_group{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
 }
 
 
