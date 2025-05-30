@@ -197,7 +197,7 @@ html, body {
     padding-top: 2rem;
     padding-bottom: 3rem; 
     margin-top: 6rem; /* desativar apenas no caso de querer que o header fique invisivel */
-    background-image: url(/assets/mainPage/banner.avif);
+    background-image: url(/assets/main_page_images/banner.avif);
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
