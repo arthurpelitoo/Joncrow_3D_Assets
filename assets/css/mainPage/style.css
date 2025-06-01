@@ -181,7 +181,6 @@ html, body {
 }
 
 #header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .dropdown-menu li .dropdown-item:hover {
-    font-family: var(--font-default);
     font-size: medium;
     color: var(--btnTextColorhover);
 }
@@ -401,7 +400,7 @@ html, body {
     bottom: 0;
     width: 0%;
     height: 2px; /* Ajuste a espessura conforme quiser */
-    background: var(--btnTextColor);
+    background: var(--secondColor);
     transition: width 0.3s ease, left 0.3s ease;
 }
 
@@ -1122,6 +1121,11 @@ html, body {
     flex-direction: row;
     flex-wrap: nowrap;
     gap: 10px;
+}
+
+
+.footer img{
+    width: 15%;
 }
 
 

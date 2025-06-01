@@ -80,7 +80,7 @@ function voltarAutomatico() {
 // Inicia a troca automáticamente quando a página carregar.
 iniciarTroca();
 
-btnAllModels.addEventListener('mouseover', () => mudarDescricao('See now more of 50 3D models'));
+btnAllModels.addEventListener('mouseover', () => mudarDescricao('See now more of 50 3D models and much more assets'));
 btnAllModels.addEventListener('mouseout', voltarAutomatico);
 
 btnFAQ.addEventListener('mouseover', () => mudarDescricao('Find answers to common questions!'));

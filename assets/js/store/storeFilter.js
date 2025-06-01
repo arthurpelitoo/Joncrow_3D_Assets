@@ -18,12 +18,16 @@ function mostrarCatalogo(lista){
     container.innerHTML = '';
     lista.forEach(item => {
         card = document.createElement('div');
-        card.classList.add('card');
+        card.classList.add('col-12', 'col-sm-6', 'col-md-4', 'col-lg-3');
         card.innerHTML = `
-            <img src="${item.imagem_card}" alt="${item.titulo[idioma]}">
-            <h3 data-name="${item.titulo[idioma]}" data-category="${item.categoria[idioma]}">${item.titulo[idioma]}</h3>
-            <p>Cost: ${formatarPreco(item.preco)}</p>
-            <button type="button" onclick="verMais(${item.id})">${item.btn[idioma]}</button>
+            <a href="#" type="button" onclick="verMais(${item.id})" class="card-link">
+                <div class="card">
+                    <img src="${item.imagem_card}" alt="${item.titulo[idioma]}">
+                    <div class="card-body">
+                        <h3 class="card_title" data-name="${item.titulo[idioma]}" data-category="${item.categoria[idioma]}">${item.titulo[idioma]}</h3>
+                        <p class="card_cost">Cost: ${formatarPreco(item.preco)}</p>
+                    </div>
+                </div>
         `;
         container.appendChild(card);
     });
@@ -37,27 +41,28 @@ function filterProducts(){
     const searchText = searchInput.value.toLowerCase();
     const selectedFilters = Array.from(filters).filter(f => f.checked).map(f => f.value);
 
-    const cards = document.querySelectorAll('#product .card');
+    const filteredList = dados.filter(item => {
+        const name = item.titulo[idioma].toLowerCase();
+        const category = item.categoria[idioma].toLowerCase();
 
-    cards.forEach(card => {
-        const h3 = card.querySelector('h3');
-        const name = h3.dataset.name.toLowerCase();
-        const category = h3.dataset.category.toLowerCase();
-
-        const matchesSearch = name.includes(searchText);
+        const matchesSearch = name.includes(searchText) || category.includes(searchText);
         const matchesFilter = selectedFilters.length === 0 || selectedFilters.includes(category);
 
-        if(matchesSearch && matchesFilter){
-            card.classList.remove('hidden');
-        } else{
-            card.classList.add('hidden');
-        }
+        return matchesSearch && matchesFilter;
     });
+
+    mostrarCatalogo(filteredList);
 }
 
 function mudarIdioma(novoIdioma){
     idioma = novoIdioma;
     carregarDados();
+}
+
+function verMais(id){
+    const item = dados.find(produto => produto.id === id);
+    localStorage.setItem('produtoItem', JSON.stringify(item));
+    window.location.href = '/pages/product.html';
 }
 
 searchInput.addEventListener('input', filterProducts);
