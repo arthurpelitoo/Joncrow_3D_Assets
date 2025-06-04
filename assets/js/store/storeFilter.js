@@ -62,7 +62,7 @@ function mudarIdioma(novoIdioma){
 function verMais(id){
     const item = dados.find(produto => produto.id === id);
     localStorage.setItem('produtoItem', JSON.stringify(item));
-    window.location.href = '/pages/product.html';
+    window.location.href = "/pages/product.html" + `?id=${id}`;
 }
 
 searchInput.addEventListener('input', filterProducts);

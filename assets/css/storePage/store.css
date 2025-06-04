@@ -390,10 +390,6 @@ html, body {
     color: var(--textColor);
 }
 
-.hidden{
-    display: none !important;
-}
-
 /* footer */
 
 .footer{

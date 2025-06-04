@@ -1,0 +1,660 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --backgroundscreencrt: #D8C9B4;
+    --mainColor: #000000;
+    --secondColor: #ffffff;
+    --cardColors: #121212;
+    --terciaryColor: #a259ff;
+    --accentHoverColor: #C084FC;
+    --titleMainColor: #FFFFFF;
+    --textColor: #FFFFFF;
+    --btnTextColor: #FFFFFF;
+    --btnTextColorhover: #000000;
+    --btnBackground: #000000;
+    --btnBackgroundhover: #FFFFFF;
+    --btnBackgroundCtaColor: #A259FF;
+    --btnBackgroundCtaHoverColor: #C084FC;
+    --font-title: "Press Start 2P", sans-serif, arial;
+    --font-default: "Poppins", arial, sans-serif;
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 5px rgba(162, 89, 255, 0.2); }
+  50% { box-shadow: 0 0 15px rgba(161, 89, 255, 0.664); }
+  100% { box-shadow: 0 0 5px rgba(162, 89, 255, 0.2); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: var(--backgroundscreencrt) !important;
+    z-index: 2;
+    min-height: 100vh;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    background: repeating-linear-gradient(
+        to bottom,
+        var(--secondColor) 0,
+        var(--secondColor) 1px,
+        transparent 2px,
+        transparent 3px
+    );
+}
+
+* {
+    margin: 0;
+}
+
+.grain-effect {
+    background-color: var(--mainColor);
+    width: 100%;
+    height: 100vh;
+    top: 0; 
+    left: 0;
+    position: fixed;
+    z-index: 3;
+    opacity: 0.03;
+    pointer-events: none;
+    object-fit: cover;
+}
+
+/* HEADER */
+#header {
+    width: 100%;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    background-color: var(--mainColor);
+    position: fixed;
+}
+
+#header .container {
+    width: 90%;
+    margin: auto;
+}
+
+#header .container .flex {
+    display: flex;
+}
+
+#header .container .flex .flex-col1 {
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+}
+
+#header .container .flex .flex-col1 .headerLogo {
+    display: block;
+}
+
+#header .container .flex .flex-col1 .headerLogo img {
+    width: 150px;
+    height: 100px;
+}
+
+#header .container .flex .flex-col2 {
+    align-content: center;
+    flex-basis: 50%;
+    text-align: right;
+}
+
+#header .container .flex .flex-col2 .header-menu {
+    display: block;
+    text-align: right;
+    font-size: 2rem;
+    margin: 10px;
+    color: var(--textColor);
+    transition: ease-in-out 0.3s;
+}
+
+#header .container .flex .flex-col2 .header-menu:hover {
+    color: var(--accentHoverColor);
+}
+
+#header .container .flex .flex-col2 .header-nav {
+    display: none;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-btn {
+    display: block;
+    background-color: var(--btnBackground);
+    color: var(--textColor) !important;
+    font-family: var(--font-default);
+    font-size: medium;
+    text-decoration: none;
+    transition: ease-in-out 0.3s;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-btn:hover {
+    background-color: var(--btnBackgroundhover);
+    color: var(--btnTextColorhover) !important;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .nav-btn-models {
+    display: block;
+    color: var(--textColor) !important;
+    background-color: var(--terciaryColor);
+    font-family: var(--font-default);
+    font-size: medium;
+    text-decoration: none;
+    transition: ease-in-out 0.3s;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .nav-btn-models:hover {
+    background-color: var(--accentHoverColor);
+    color: var(--btnTextColorhover) !important;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .dropdown-menu {
+    background-color: var(--btnBackground);
+    color: var(--btnTextColor);
+    text-align: center;
+    --bs-dropdown-padding-y: 0 !important;
+    --bs-dropdown-min-width: 0rem !important;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .dropdown-menu li .dropdown-item {
+    font-family: var(--font-default);
+    font-size: medium;
+    color: var(--btnTextColor);
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .dropdown-menu li .dropdown-item:hover {
+    font-size: medium;
+    color: var(--btnTextColorhover);
+}
+
+#header .container .flex .flex-col2 .header-nav.active {
+    display: block;
+}
+
+/* banner */
+
+.banner{
+    position: relative;
+    width: 100%;
+    height: 100px;
+    margin-top: 6rem; /* desativar apenas no caso de querer que o header fique invisivel */
+    background-image: url(/assets/product_page_images/banner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.banner::after{
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(to right, var(--secondColor), var(--accentHoverColor), var(--terciaryColor));
+}
+
+
+/* articleDetailProduct */
+
+.articleDetailProduct{
+    background: linear-gradient(1deg, var(--cardColors), var(--mainColor));
+    position: relative;
+    width: 100%;
+}
+
+.articleDetailProduct .product_title #productTitle{
+    font: 1.5em var(--font-title);
+    color: var(--titleMainColor);
+    padding: 1rem;
+    margin-left: 2rem;
+    position: relative;
+}
+
+.articleDetailProduct .product_title #productTitle::after{
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 90%;
+    height: 1px;
+    background: linear-gradient(to right, var(--mainColor), var(--terciaryColor), var(--accentHoverColor));
+    /* animation: glow 2s infinite ease-in-out; */
+    animation: pulse 1s infinite ease-in-out;
+}
+
+.articleDetailProduct .productOrganization{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.articleDetailProduct .productOrganization .product_carousel .carousel-control-prev,
+.articleDetailProduct .productOrganization .product_carousel .carousel-control-next{
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.articleDetailProduct .productOrganization .product_carousel .carousel-control-prev{
+    left: 0px;
+}
+
+.articleDetailProduct .productOrganization .product_carousel .carousel-control-next{
+    right: 0px;
+}
+
+.articleDetailProduct .productOrganization .product_carousel .carousel-inner .carousel-item.active{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.articleDetailProduct .productOrganization .product_carousel .carousel-inner{
+    display: flex;
+    width: 100%;
+    height: 700px;
+}
+
+.articleDetailProduct .productOrganization .product_carousel .carousel-inner .carousel-item{
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.articleDetailProduct .productOrganization .product_carousel .carousel-inner .carousel-item img{
+    width: 100%;
+    height: 700px;
+    object-position: center;
+    object-fit: contain;
+}
+
+.articleDetailProduct .productOrganization .product_carousel .carousel-inner .carousel-item iframe{
+    width: 100%;
+    height: 700px;
+    object-fit: contain;
+}
+
+.articleDetailProduct .productOrganization .product_info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    align-items: center;
+    padding: 3rem;
+}
+
+.articleDetailProduct .productOrganization .product_info .productPrice{
+    font: 1.25em var(--font-title);
+    color: var(--titleMainColor);
+}
+
+.articleDetailProduct .productOrganization .product_info .productBuyLink{
+    display: block;
+    border-radius: 5px;
+    padding: 0.5rem;
+    width: fit-content;
+    color: var(--textColor);
+    background-color: var(--btnBackgroundCtaColor);
+    font-family: var(--font-default);
+    font-size: medium;
+    text-decoration: none;
+    transition: ease-in-out 0.3s;
+    animation: glow 2s infinite ease-in-out;
+    margin-bottom: 0.5em;
+}
+
+.articleDetailProduct .productOrganization .product_info .productBuyLink:hover{
+    background-color: var(--btnBackgroundCtaHoverColor);
+    color: var(--btnTextColorhover);
+}
+
+.articleDetailProduct .productOrganization .product_info .productLicence{
+    color: var(--textColor);
+    font-family: var(--font-default);
+    font-size: medium;
+    text-decoration: none;
+}
+
+.articleDetailProduct .productOrganization .product_info .collectionContainer .serieParagraphStyle{
+    color: var(--textColor);
+    font-family: var(--font-default);
+    font-size: medium;
+    text-decoration: none;
+}
+
+.articleDetailProduct .productOrganization .product_info .collectionContainer a{
+    color: var(--terciaryColor);
+    animation: pulse 1s infinite ease-in-out;
+}
+
+.articleDetailProduct .descriptionCollapseContainer{
+    background-color: var(--cardColors);
+}
+
+.articleDetailProduct .descriptionCollapseContainer .descriptionCollapseBtn{
+    width: 100%;
+    border: 0;
+    padding: 1.5em;
+    display: block;
+    color: var(--textColor) !important;
+    background-color: var(--terciaryColor);
+    font-family: var(--font-default);
+    font-size: medium;
+    text-decoration: none;
+    transition: ease-in-out 0.3s;
+    transform: scale(1);
+}
+
+.articleDetailProduct .descriptionCollapseContainer .descriptionCollapseBtn:hover{
+    transform: scale(1.05);
+    background-color: var(--btnBackgroundCtaHoverColor);
+    color: var(--btnTextColorhover) !important;
+}
+
+.articleDetailProduct .descriptionCollapseContainer .descriptionCollapseBox{
+    padding: 1.5rem;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.articleDetailProduct .descriptionCollapseContainer .descriptionCollapseBox.show{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.articleDetailProduct .descriptionCollapseContainer .descriptionCollapseBox p{
+    text-align: left;
+    color: var(--textColor);
+    font-family: var(--font-default);
+    font-size: medium;
+    text-decoration: none;
+}
+
+.articleDetailProduct .descriptionCollapseContainer .descriptionCollapseBox h2{
+    text-align: left;
+    color: var(--textColor);
+    font-family: var(--font-default);
+    font-size: x-large;
+    text-decoration: none;
+}
+
+.articleDetailProduct .productDevlogs #devlogTitle{
+    padding: 1rem;
+    text-align: center;
+    color: var(--textColor);
+    font-family: var(--font-default);
+    font-size: x-large;
+    text-decoration: none;
+}
+
+.articleDetailProduct .productDevlogs .devlogUl{
+    padding: 0.5rem;
+    text-align: center;
+    color: var(--textColor);
+    font-family: var(--font-default);
+    font-size: x-large;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.articleDetailProduct .productDevlogs .devlogUl li .devlogAStyle{
+    color: var(--terciaryColor);
+    animation: pulse 1s infinite ease-in-out;
+}
+
+.articleDetailProduct #cusdis_thread{
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 300px; /* ou mais, conforme o design */
+}
+
+
+/* footer */
+
+.footer{
+    background: linear-gradient(1deg, var(--cardColors), var(--mainColor));
+    height: fit-content;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer img{
+    width: 35%;
+}
+
+.footer a{
+    color: var(--terciaryColor);
+    font-size: 2.3em;
+    width: 2.3em;
+    text-decoration: none;
+    margin: 15px;
+    transition: all 0.3s;
+}
+
+.footer .footerClass .iconRedes a .itch-icon {
+    display: inline-block;
+    fill: var(--terciaryColor);
+    transition: all 0.3s;
+
+}
+
+.footer .footerClass .iconRedes a:hover .itch-icon{
+    fill: var(--accentHoverColor);
+}
+
+.footer a:hover{
+    color: var(--accentHoverColor);
+}
+
+.footer .iconRedes{
+    display: flex;
+    line-height: 30px;
+    color: var(--textColor);
+    font-family: var(--font-default);
+    align-items: center;
+    justify-content: center;
+}
+
+.footer .dev{
+    line-height: 30px;
+    color: var(--textColor);
+    font-family: var(--font-default);
+}
+
+.footer .footerClass{
+    text-align: center;
+    margin: auto;
+}
+
+/* responsive for pc and notebooks */
+
+@media (min-width: 1000px) {
+
+/* header */
+
+    /* ativar essa personalização apenas no caso de querer que fique invisivel */
+/* #header{
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+} */
+
+/* #header.scrolled {
+    background-color: var(--mainColor);
+} */
+
+#header .container{
+    width: 1000px;
+}
+
+#header .container .flex .flex-col1{
+    flex-basis: 30%;
+}
+
+#header .container .flex .flex-col1 .headerLogo{
+    text-align: left;
+}
+                    
+#header .container .flex .flex-col1 .headerLogo img{
+    width: 200px;
+    height: 150px;
+}
+
+#header .container .flex .flex-col2{
+    flex-basis: 70%;
+    margin: auto;
+}
+
+#header .container .flex .flex-col2 .header-menu{
+    display: none;
+}
+
+#header .container .flex .flex-col2 .header-nav{
+    display: block;
+    position: relative;
+    text-align: right;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li{
+    margin-left: 5px;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li {
+    background-color: none;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li:hover {
+    background-color: none;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-btn{
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-btn:hover{
+    transform: translateY(-2px);
+}
+
+/* os que tem nav-div depois do nav-li são componentes do bootstrap por isso possuem uma classe extra.*/
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .nav-btn{
+    display: block;
+    color: var(--textColor) !important;
+    background-color: var(--btnBackground);
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-family: var(--font-default);
+    font-size: medium;
+    text-decoration: none;
+    transition: ease-in-out 0.3s;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .nav-btn:hover{
+    transform: translateY(-2px);
+    background-color: var(--btnBackgroundhover);
+    color: var(--btnTextColorhover) !important;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .nav-btn-models{
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .nav-btn-models:hover {
+    transform: translateY(-2px);
+}
+
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .dropdown-menu{
+    background-color: var(--btnBackground);
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .dropdown-menu li .dropdown-item{
+    font-family: var(--font-default);
+    font-size: medium;
+    color: var(--btnTextColor);
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .dropdown-menu li .dropdown-item:hover{
+    font-family: var(--font-default);
+    font-size: medium;
+    color: var(--btnTextColorhover);
+}
+
+.banner{
+    margin-top: 9rem; /* desativar apenas no caso de querer que o header fique invisivel */
+}
+
+.articleDetailProduct .productOrganization .product_carousel .carousel-control-prev,
+.articleDetailProduct .productOrganization .product_carousel .carousel-control-next{
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.articleDetailProduct .productOrganization .product_carousel .carousel-control-prev{
+    left: -60px;
+}
+
+.articleDetailProduct .productOrganization .product_carousel .carousel-control-next{
+    right: -60px;
+}
+
+
+.articleDetailProduct .productOrganization{
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 1rem;
+    padding-left: 3rem;
+    gap: 4.5rem;
+}
+
+.articleDetailProduct .productOrganization .product_carousel .carousel-inner{
+    display: flex;
+    width: 50vw;
+    height: 700px;
+}
+
+.articleDetailProduct .productOrganization .product_carousel .carousel-inner .carousel-item img{
+    width: 100%;
+    height: 700px;
+    object-position: center;
+    object-fit: contain;
+}
+
+.articleDetailProduct .productOrganization .product_carousel .carousel-inner .carousel-item iframe{
+    width: 100%;
+    height: 700px;
+    object-fit: contain;
+}
+
+.articleDetailProduct .productOrganization .product_info{
+    align-items: flex-start;
+    text-align: left;
+    padding: 0;
+}
+
+.footer img{
+    width: 15%;
+}
+
+}

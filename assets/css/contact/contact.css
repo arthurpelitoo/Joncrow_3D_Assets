@@ -1,0 +1,769 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --backgroundscreencrt: #D8C9B4;
+    --mainColor: #000000;
+    --secondColor: #ffffff;
+    --cardColors: #121212;
+    --terciaryColor: #a259ff;
+    --accentHoverColor: #C084FC;
+    --titleMainColor: #FFFFFF;
+    --textColor: #FFFFFF;
+    --btnTextColor: #FFFFFF;
+    --btnTextColorhover: #000000;
+    --btnBackground: #000000;
+    --btnBackgroundhover: #FFFFFF;
+    --btnBackgroundCtaColor: #A259FF;
+    --btnBackgroundCtaHoverColor: #C084FC;
+    --font-title: "Press Start 2P", sans-serif, arial;
+    --font-default: "Poppins", arial, sans-serif;
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 5px rgba(162, 89, 255, 0.2); }
+  50% { box-shadow: 0 0 15px rgba(161, 89, 255, 0.664); }
+  100% { box-shadow: 0 0 5px rgba(162, 89, 255, 0.2); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-image: url("/assets/contact_page_image/contactbackground.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: 2;
+    min-height: 100vh;
+    top: 0; 
+    left: 0;
+    width: 100%;
+}
+
+* {
+    margin: 0;
+}
+
+.grain-effect {
+    background-color: var(--mainColor);
+    width: 100%;
+    height: 100vh;
+    top: 0; 
+    left: 0;
+    position: fixed;
+    z-index: 3;
+    opacity: 0.03;
+    pointer-events: none;
+    object-fit: cover;
+}
+
+/* HEADER */
+#header {
+    width: 100%;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    background-color: var(--mainColor);
+    position: fixed;
+}
+
+#header .container {
+    width: 90%;
+    margin: auto;
+}
+
+#header .container .flex {
+    display: flex;
+}
+
+#header .container .flex .flex-col1 {
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+}
+
+#header .container .flex .flex-col1 .headerLogo {
+    display: block;
+}
+
+#header .container .flex .flex-col1 .headerLogo img {
+    width: 150px;
+    height: 100px;
+}
+
+#header .container .flex .flex-col2 {
+    align-content: center;
+    flex-basis: 50%;
+    text-align: right;
+}
+
+#header .container .flex .flex-col2 .header-menu {
+    display: block;
+    text-align: right;
+    font-size: 2rem;
+    margin: 10px;
+    color: var(--textColor);
+    transition: ease-in-out 0.3s;
+}
+
+#header .container .flex .flex-col2 .header-menu:hover {
+    color: var(--accentHoverColor);
+}
+
+#header .container .flex .flex-col2 .header-nav {
+    display: none;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-btn {
+    display: block;
+    background-color: var(--btnBackground);
+    color: var(--textColor) !important;
+    font-family: var(--font-default);
+    font-size: medium;
+    text-decoration: none;
+    transition: ease-in-out 0.3s;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-btn:hover {
+    background-color: var(--btnBackgroundhover);
+    color: var(--btnTextColorhover) !important;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .nav-btn-models {
+    display: block;
+    color: var(--textColor) !important;
+    background-color: var(--terciaryColor);
+    font-family: var(--font-default);
+    font-size: medium;
+    text-decoration: none;
+    transition: ease-in-out 0.3s;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .nav-btn-models:hover {
+    background-color: var(--accentHoverColor);
+    color: var(--btnTextColorhover) !important;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .dropdown-menu {
+    background-color: var(--btnBackground);
+    color: var(--btnTextColor);
+    text-align: center;
+    --bs-dropdown-padding-y: 0 !important;
+    --bs-dropdown-min-width: 0rem !important;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .dropdown-menu li .dropdown-item {
+    font-family: var(--font-default);
+    font-size: medium;
+    color: var(--btnTextColor);
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .dropdown-menu li .dropdown-item:hover {
+    font-size: medium;
+    color: var(--btnTextColorhover);
+}
+
+#header .container .flex .flex-col2 .header-nav.active {
+    display: block;
+}
+
+.sectionSpace{
+    position: relative;
+    width: 100%;
+    margin-top: 7rem;
+}
+
+.sectionSpace .container{
+    padding: 0.5rem;
+}
+
+.sectionSpace .container .faixa{
+    text-align: center;
+}
+
+.sectionSpace .container .faixa .faixaTitle{
+    font: 32px var(--font-default);
+    color: var(--textColor);
+    background: linear-gradient(180deg, var(--cardColors), var(--mainColor));
+    text-align: justify;
+    padding: 5px;
+    border-radius: 5px;
+    line-height: 40px;
+}
+
+.sectionSpace .container .faixa .faixaTitle i{
+    color: var(--terciaryColor);
+    animation: pulse 1s infinite ease-in-out;
+}
+
+.sectionSpace .container .formContato{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.step{
+    display: none;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.5s ease;
+}
+
+.step.active{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 5px;
+    gap: 10px;
+    width: fit-content;
+    opacity: 1;
+    background-color: var(--cardColors);
+    transform: translateX(0);
+}
+
+.progress-bar{
+    width: 100%;
+    background: var(--cardColors) !important;
+    border-radius: 10px;
+    height: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.progress{
+    height: 100%;
+    background: var(--terciaryColor) !important;
+    width: 0%;
+    transition: width 0.3 ease;
+}
+
+.labelForm{
+    text-align: start;
+    font: 20px var(--font-default);
+    color: var(--textColor);
+    margin: 15px;
+}
+
+.inputForm{
+    width: fit-content;
+    text-align: center;
+    background-color: var(--mainColor);
+    font: 18px var(--font-default);
+    color: var(--textColor);
+    border: 5px solid var(--terciaryColor);
+    border-radius: 5px;
+    transition: ease-in-out 0.3s;
+}
+
+.inputForm::placeholder{
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.inputForm:hover{
+    border: 5px solid var(--accentHoverColor);
+}
+
+.textAreaForm{
+    text-align: center;
+    background-color: var(--mainColor);
+    font: 18px var(--font-default);
+    color: var(--textColor);
+    border: 0;
+    border: 5px solid var(--terciaryColor);
+    border-radius: 5px;
+    resize: none;
+    height: 150px;
+    transition: ease-in-out 0.5s;
+}
+
+.textAreaForm:hover{
+    border: 5px solid var(--accentHoverColor);
+}
+
+.next{
+    width: fit-content;
+    border: 0;
+    border-radius: 5px;
+    font: 16px var(--font-default);
+    background-color: var(--terciaryColor);
+    color: var(--textColor);
+    transition: ease-in-out 0.3s;
+}
+
+.next:hover{
+    transform: scale(1.1);
+    background-color: var(--accentHoverColor);
+    color: var(--mainColor);
+}
+
+.btn{
+    margin: auto;
+    width: 50%;
+    border: 0;
+    border-radius: 5px;
+    font: 16px var(--font-default);
+    background-color: var(--terciaryColor);
+    color: var(--textColor);
+    transition: ease-in-out 0.3s;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+    background-color: var(--accentHoverColor);
+    color: var(--mainColor);
+}
+
+.socialMedia{
+    background-color: var(--cardColors);
+    text-align: center;
+    border-radius: 5px;
+    padding: 2rem;
+    margin-top: 12rem;
+    margin-bottom: 7rem;
+}
+
+.socialMedia h1{
+    color: var(--textColor);
+    font-family: var(--font-default);
+}
+
+.socialMedia .contact_ways{
+    display: flex;
+    align-items: center;
+    margin-top: 4rem;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.socialMedia .contact_ways .contact_container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.socialMedia .contact_ways .contact_container .contact_text{
+    color: var(--textColor);
+    font-family: var(--font-default);
+}
+
+.socialMedia .contact_ways .contact_container i{
+    color: var(--terciaryColor);
+    font-size: 2.3em;
+    width: 2.3em;
+    text-decoration: none;
+    margin: 15px;
+    transition: all 0.3s;
+}
+
+.socialMedia .contact_ways .contact_container a{
+    color: var(--terciaryColor);
+    font-family: var(--font-default);
+}
+
+.socialMedia .contact_ways .contact_container a:hover{
+    color: var(--accentHoverColor);
+}
+
+/* footer */
+
+.footer{
+    background: linear-gradient(1deg, var(--cardColors), var(--mainColor));
+    height: fit-content;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer img{
+    width: 35%;
+}
+
+.footer a{
+    color: var(--terciaryColor);
+    font-size: 2.3em;
+    width: 2.3em;
+    text-decoration: none;
+    margin: 15px;
+    transition: all 0.3s;
+}
+
+.footer .footerClass .iconRedes a .itch-icon {
+    display: inline-block;
+    fill: var(--terciaryColor);
+    transition: all 0.3s;
+
+}
+
+.footer .footerClass .iconRedes a:hover .itch-icon{
+    fill: var(--accentHoverColor);
+}
+
+.footer a:hover{
+    color: var(--accentHoverColor);
+}
+
+.footer .iconRedes{
+    display: flex;
+    line-height: 30px;
+    color: var(--textColor);
+    font-family: var(--font-default);
+    align-items: center;
+    justify-content: center;
+}
+
+.footer .dev{
+    line-height: 30px;
+    color: var(--textColor);
+    font-family: var(--font-default);
+}
+
+.footer .footerClass{
+    text-align: center;
+    margin: auto;
+}
+
+/* responsive for pc and notebooks */
+
+@media (min-width: 1000px) {
+
+/* header */
+
+    /* ativar essa personalização apenas no caso de querer que fique invisivel */
+/* #header{
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+} */
+
+/* #header.scrolled {
+    background-color: var(--mainColor);
+} */
+
+#header .container{
+    width: 1000px;
+}
+
+#header .container .flex .flex-col1{
+    flex-basis: 30%;
+}
+
+#header .container .flex .flex-col1 .headerLogo{
+    text-align: left;
+}
+                    
+#header .container .flex .flex-col1 .headerLogo img{
+    width: 200px;
+    height: 150px;
+}
+
+#header .container .flex .flex-col2{
+    flex-basis: 70%;
+    margin: auto;
+}
+
+#header .container .flex .flex-col2 .header-menu{
+    display: none;
+}
+
+#header .container .flex .flex-col2 .header-nav{
+    display: block;
+    position: relative;
+    text-align: right;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li{
+    margin-left: 5px;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li {
+    background-color: none;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li:hover {
+    background-color: none;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-btn{
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-btn:hover{
+    transform: translateY(-2px);
+}
+
+/* os que tem nav-div depois do nav-li são componentes do bootstrap por isso possuem uma classe extra.*/
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .nav-btn{
+    display: block;
+    color: var(--textColor) !important;
+    background-color: var(--btnBackground);
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-family: var(--font-default);
+    font-size: medium;
+    text-decoration: none;
+    transition: ease-in-out 0.3s;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .nav-btn:hover{
+    transform: translateY(-2px);
+    background-color: var(--btnBackgroundhover);
+    color: var(--btnTextColorhover) !important;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .nav-btn-models{
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .nav-btn-models:hover {
+    transform: translateY(-2px);
+}
+
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .dropdown-menu{
+    background-color: var(--btnBackground);
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .dropdown-menu li .dropdown-item{
+    font-family: var(--font-default);
+    font-size: medium;
+    color: var(--btnTextColor);
+}
+
+#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .dropdown-menu li .dropdown-item:hover{
+    font-family: var(--font-default);
+    font-size: medium;
+    color: var(--btnTextColorhover);
+}
+
+/* sectionSpace */
+
+.sectionSpace{
+    margin-top: 10rem; /* desativar apenas no caso de querer que o header fique invisivel */
+}
+
+.sectionSpace .container{
+    padding: 2rem;
+}
+
+.socialMedia .contact_ways{
+    flex-direction: row;
+}
+
+/* footer */
+
+.footer img{
+    width: 15%;
+}
+
+}
+
+/* Personalização do Modal */
+
+.modal-container{
+    display: flex;
+    position: relative;
+    z-index: 2;
+
+    .modal{
+        background-color: var(--cardColors);
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        z-index: 3;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: fit-content;
+        height: auto;
+        border-radius: 10px;
+        .modalContainerTitle{
+            width: 100%;
+            padding: 25px;
+            background-color: var(--terciaryColor);
+            .modalTitle{
+                font: 1.5em var(--font-default);
+                color: var(--textColor) !important;
+            }
+        }
+        .modalContainerMessage{
+            width: 100%;
+            padding: 25px;
+            .modalMessage{
+                font: 1.5em var(--font-default);
+                color: var(--textColor) !important;
+            }
+        }
+        .modalButton{
+            width: 100%;
+            padding: 25px;
+            background-color: var(--cardColors);
+            button{
+                padding: 10px;
+                background-color: var(--terciaryColor);
+                color: var(--textColor);
+                font: 1.2em var(--font-default);
+                transition: ease-in-out 0.3s;
+                border: 0;
+                border-radius: 5px;
+            }
+            button:hover{
+                background-color: var(--accentHoverColor);
+            }
+        }
+    }
+
+}
+
+.modal-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    backdrop-filter: blur(5px);
+}
+
+@media (min-width: 1000px){
+
+.modal-container{
+    display: flex;
+    position: relative;
+    z-index: 2;
+}
+
+.modal-container .modal{
+    background-color: var(--cardColors);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50vw;
+    height: 500px;
+    border-radius: 10px;
+}
+  
+.modal-container .modal .modalContainerTitle{
+    width: 100%;
+    padding: 25px;
+    background-color: var(--terciaryColor);
+}
+
+.modal-container .modal .modalContainerTitle .modalTitle{
+    font: 1.5em var(--font-default);
+    color: var(--textColor) !important;
+}
+
+
+.modal-container .modal .modalContainerMessage{
+    width: 100%;
+    padding: 25px;
+}
+
+.modal-container .modal .modalContainerMessage .modalMessage{
+    font: 1.5em var(--font-default);
+    color: var(--textColor) !important;
+}
+        
+.modal-container .modal .modalButton{
+    width: 100%;
+    padding: 25px;
+    background-color: var(--cardColors);
+}
+
+.modal-container .modal .modalButton button{
+    padding: 10px;
+    background-color: var(--terciaryColor);
+    color: var(--textColor);
+    font: 1.2em var(--font-default);
+    transition: ease-in-out 0.3s;
+    border: 0;
+    border-radius: 5px;
+}
+            
+.modal-container .modal .modalButton button:hover{
+    background-color: var(--accentHoverColor);
+}
+
+.modal-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    backdrop-filter: blur(5px);
+}
+
+}
+
+/* fim da personalização do modal */
+
+
+/* Personalização da Scrollbar para navegadores WebKit (Chrome, Edge, Safari) NAO FUNCIONA NO FIREFOX */
+
+::-webkit-scrollbar {
+    width: 10px; /* Largura da barra */
+}
+
+/* Fundo da barra de rolagem */
+::-webkit-scrollbar-track {
+    background: var(--cardColors); /* Cor de fundo */
+}
+
+/* Barra de rolagem */
+::-webkit-scrollbar-thumb {
+    background: var(--terciaryColor); /* Cor da barra */
+    border-radius: 3px; /* Bordas arredondadas */
+    transition: ease-in-out 1s;
+}
+
+/* Quando o usuário passa o mouse */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accentHoverColor); /* Cor ao passar o mouse */
+}
+
+/* muda a cor da barra no FIREFOX */
+scrollbar-color{
+    background: var(--terciaryColor);
+}
+
+/* Fim da personalização da Scrollbar */

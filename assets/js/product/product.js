@@ -21,38 +21,147 @@ async function carregarProduto() {
     const produto = document.getElementById('detailProduct');
 
     if (item){
-        produto.innerHTML = `
 
-            <div class="product_title">
-                <h1>${item.titulo[idioma]}</h1>
-            </div>
-            <div class="product_info">
-                <p class="price">${formatarPreco(item.preco)}</p>
-                <a class="buy_btn" href="${item.link_do_pagamento}" type="button">${item.btnPurchase[idioma]}</a>
-            </div>
-            <div id="carouselExampleIndicators" class="carousel slide w-50" data-bs-ride="carousel">
-                <div class="carousel-indicators" id="carousel-indicators"></div>
-                <div class="carousel-inner" id="carousel-inner"></div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </button>
-            </div>
-            <div class="descriptionCollapseContainer text-center">
-                <button class="descriptionCollapseBtn" type="button" data-bs-toggle="collapse" data-bs-target="#descriptionCollapseBox" aria-expanded="false" aria-controls="descriptionCollapseBox" id="banner_collapse">
-                    ${item.btnInfo[idioma]}
-                </button>
+        function carregarComentarios(item){
 
-                <div class="descriptionCollapseBox collapse" id="descriptionCollapseBox">
-                    <div class="description" id="descriptionTxt">
-                    </div>
-                    <div class="arquives" id="receivedArquives">
-                    </div>
-                </div>
-            </div>
-        `;
+            const identificacaoProduto = { id: item.id, title: `Produto ${item.titulo.en}` };
+
+            if(window.DISQUS){
+                DISQUS.reset({
+                    reload:true,
+                    config:function(){
+                        this.page.identifier = identificacaoProduto.id;
+                        this.page.title = identificacaoProduto.title;
+                        this.page.url = window.location.href;
+                    }
+                });
+            } else{
+                window.disqus_config = function () {
+                    this.page.identifier = identificacaoProduto.id;
+                    this.page.title = identificacaoProduto.title;
+                    this.page.url = window.location.href;
+                };
+
+                let d = document, s = d.createElement('script');
+                s.src = 'https://joncrow-asset-store.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                s.async = true;
+                (d.head || d.body).appendChild(s);
+            }
+        }
+
+        carregarComentarios(item);
+
+        const productTitle = document.getElementById('productTitle');
+        productTitle.textContent = item.titulo[idioma];
+
+        const productPrice = document.getElementById('productPrice');
+        productPrice.textContent = formatarPreco(item.preco);
+
+        const productBuyLink = document.getElementById('productBuyLink');
+        productBuyLink.href  = item.link_do_pagamento;
+        productBuyLink.textContent = item.btnPurchase[idioma];
+
+        const productLicence = document.getElementById('productLicence');
+        productLicence.textContent = item.licenca;
+
+        const descriptionCollapse = document.getElementById('descriptionCollapse');
+        descriptionCollapse.textContent = item.btnInfo[idioma];
+
+        //pra poder adicionar as coleções
+
+        if(item.serie && item.serielink){
+
+            const collectionPhrase = {
+
+                'en': `This item is from the ${item.serie} serie's collection:`,
+                'pt': `Esse item é da serie de coleção ${item.serie}:`
+            }
+
+            const linkText = {
+                'en': `Click here to see the full serie's collection`,
+                'pt': `Clique aqui para ver a serie de coleção completa`
+            }
+
+            const collectionContent = document.getElementById('collectionContent');
+
+            const serieParagraph = document.createElement('p');
+            serieParagraph.classList.add('serieParagraphStyle');
+
+            serieParagraph.textContent = collectionPhrase[idioma];
+
+            const linkElement = document.createElement('a');
+            linkElement.href = item.serielink;
+            linkElement.textContent = linkText[idioma];
+            linkElement.target = '_blank';
+            linkElement.rel = 'noopener noreferrer';
+
+            collectionContent.appendChild(serieParagraph);
+
+            collectionContent.appendChild(linkElement);
+
+        }
+
+        if(item.devlogs && item.devlogs.length > 0){
+
+            const devlogTitle = document.getElementById('devlogTitle');
+            devlogTitle.textContent = "DevLog:";
+
+            const devlogUl = document.getElementById('devlogUl');
+            
+            item.devlogs.forEach((valor) => {
+
+                console.log(valor.link)
+
+                const devlogLi = document.createElement('li');
+                
+                const devlogA = document.createElement('a');
+                devlogA.classList.add('devlogAStyle');
+
+                devlogA.href = valor.link;
+                devlogA.textContent = valor.titulo;
+
+                const devlogDiv = document.createElement('div');
+                devlogDiv.classList.add('devlogDiv');
+
+                const devlogAbbr = document.createElement('abbr');
+                devlogAbbr.classList.add('devlogAbbr');
+                devlogAbbr.title = valor.data;
+                devlogAbbr.textContent = valor.data;
+
+                devlogDiv.appendChild(devlogAbbr);
+                devlogLi.appendChild(devlogA);
+                devlogLi.appendChild(devlogDiv);
+                devlogUl.appendChild(devlogLi);
+
+            });
+        }
+
+        const tagsTxt = document.getElementById('receivedTags');
+
+        //cria um parágrafo só
+        const tagsParagraph = document.createElement('p');
+        tagsParagraph.classList.add('tagsParagraphStyle');
+
+        item.tags.forEach((valor, index, array) => {
+
+            const tagSpan = document.createElement('span');
+
+            tagSpan.classList.add('tagSpanStyle');
+            tagSpan.textContent = valor;
+
+            tagsParagraph.appendChild(tagSpan);
+
+            //Se não for o ultimo item, adiciona uma virgula
+            if(index < array.length - 1){
+                //adicionar um espaço ou separador
+                const separator = document.createTextNode(', ');
+                tagsParagraph.appendChild(separator);
+            }
+        });
+
+        //adiciona o parágrafo no container
+        tagsTxt.appendChild(tagsParagraph);
 
         //pra ele passar por todos os arquivos recebidos
 
@@ -108,12 +217,78 @@ async function carregarProduto() {
 
             inner.appendChild(div);
         });
+
+        if(item.sketchfab){
+            const index = item.imagens.length;
+
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.setAttribute('data-bs-target', '#carouselExampleIndicators');
+            button.setAttribute('data-bs-slide-to', index);
+            indicators.appendChild(button);
+
+            const div = document.createElement('div');
+            div.classList.add('carousel-item');
+            
+            const iframeContainer = document.createElement('div');
+            iframeContainer.classList.add('ratio', 'ratio-16x9');
+
+            const iframe = document.createElement('iframe');
+            iframe.title = '3D Model';
+            iframe.setAttribute('frameborder', '0');
+            iframe.allowFullscreen = true;
+            iframe.allow = 'autoplay; xr-spatial-tracking';
+            iframe.setAttribute('mozallowfullscreen', 'true');
+            iframe.setAttribute('webkitallowfullscreen', 'true');
+            iframe.setAttribute('xr-spatial-tracking', '');
+            iframe.setAttribute('execution-while-out-of-viewport', '');
+            iframe.setAttribute('execution-while-not-rendered', '');
+            iframe.setAttribute('web-share', '');
+
+            const embedUrl = item.sketchfab.match(/src='([^']+)'/);
+            if (embedUrl){
+                iframe.src = embedUrl[1];
+            }else{
+                console.warn('Sketchfab embed URL not found.');
+            }
+
+            iframeContainer.appendChild(iframe);
+            div.appendChild(iframeContainer);
+            inner.appendChild(div);
+        }
+
+        if(item.video){
+
+            const index = item.imagens.length;
+
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.setAttribute('data-bs-target', '#carouselExampleIndicators');
+            button.setAttribute('data-bs-slide-to', index);
+            indicators.appendChild(button);
+
+            const div = document.createElement('div');
+            div.classList.add('carousel-item');
+
+            const iframeContainer = document.createElement('div');
+            iframeContainer.classList.add('ratio', 'ratio-16x9');
+
+            const iframe = document.createElement('iframe');
+            iframe.title = item.titulo[idioma];
+            const embedUrl = item.video;
+            if(embedUrl){
+                iframe.src = embedUrl;
+            } else{
+                console.warn('Youtube embed not found');
+            }
+
+            iframeContainer.appendChild(iframe);
+            div.appendChild(iframeContainer);
+            inner.appendChild(div);
+
+        }
     } else {
-        produto.innerHTML = `
-            <h1>${error[idioma]}</h1>
-        
-        
-        `;
+        produto.textContent = error[idioma];
     }
 }
 
