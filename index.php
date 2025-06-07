@@ -1,23 +1,56 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Low poly 3D models optimized for games, videos, and prototyping. Compatible with Unity, Unreal, Godot, and more.">
+    <meta property="og:title" content="Joncrow - Asset Store">
+    <meta property="og:description" content="Low poly 3D models optimized for games, videos, and prototyping. Compatible with Unity, Unreal, Godot, and more.">
+    <meta property="og:image" content="assets/main_page_images/section_category/TQft9L.avif">
+    <meta property="og:url" content="https://joncrow.itch.io/3d-characters-pack-all-in-one">
     <title>Joncrow - Asset Store</title>
-    <link rel="stylesheet" href="/assets/css/productPage/product.css">
+    <base href="http://localhost/siteJon/">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- <link rel="stylesheet" href="assets/css/mainPage/style.css"> -->
+    <?php
+
+        if (isset($_GET["param"])) {
+
+            $param = $_GET["param"];
+            //separar o parametro por /
+
+            $p = explode("/", $param);
+
+            // print_r($p);
+        }
+
+        $page = $p[0] ?? "home";
+
+        $cssMap = [
+            "home" => "assets/css/mainPage/style.css",
+            "contact" => "assets/css/contact/contact.css",
+            "FAQ" => "assets/css/",
+            "store" => "assets/css/storePage/store.css",
+            "product" => "assets/css/productPage/product.css"
+        ];
+
+        if (isset($cssMap[$page]) && file_exists($cssMap[$page])) : ?>
+            <link rel="stylesheet" href="<?= $cssMap[$page] ?>">
+    <?php endif; ?>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css">
 </head>
 <body>
     <video class="grain-effect" autoplay loop muted playsinline>
-        <source src="/assets/main_page_images/graineffect.webm" type="video/webm">
+        <source src="assets/main_page_images/graineffect.webm" type="video/webm">
     </video>
     <header id="header">
         <div class="container">
             <div class="flex">
                 <div class="flex-col1">
-                    <a href="/index.html" class="headerLogo" title="Home">
-                        <img src="/assets/all_pages_use_images/header/logoCentralizado.avif" alt="Joncrow Logo">
+                    <a href="home" class="headerLogo" title="Home">
+                        <img src="assets/all_pages_use_images/header/logoCentralizado.avif" alt="Joncrow Logo">
                     </a>
                 </div>
                 <div class="flex-col2">
@@ -27,13 +60,13 @@
                     <nav class="header-nav" id="header-nav">
                         <ul class="nav-ul">
                             <li class="nav-li">
-                                <a class="nav-btn" type="button" href="/index.html" title="Home">Home</a>
+                                <a class="nav-btn" type="button" href="home" title="Home">Home</a>
                             </li>
                             <li class="nav-li">
-                                <a class="nav-btn" type="button" href="faq.html" title="Faq">F.A.Q</a>
+                                <a class="nav-btn" type="button" href="FAQ" title="Faq">F.A.Q</a>
                             </li>
                             <li class="nav-li">
-                                <a class="nav-btn" type="button" href="contact.html" title="Contact">Contact</a>
+                                <a class="nav-btn" type="button" href="contact" title="Contact">Contact</a>
                             </li>
                             <li class="nav-li">
                                 <div class="nav-div dropdown-center">
@@ -51,7 +84,7 @@
                             </li>
                             <li class="nav-li">
                                 <div class="nav-div">
-                                    <a class="nav-btn-models" href="/pages/store.html" type="button">
+                                    <a class="nav-btn-models" href="store" type="button">
                                         Asset Store
                                     </a>
                                 </div>
@@ -62,64 +95,46 @@
             </div>
         </div>
     </header>
-    <main id="detailProduct">
-        <section class="banner"></section>
-        <article class="articleDetailProduct">
-                <header class="product_title">
-                    <h1 id="productTitle"></h1>
-                </header>
-                <div class="productOrganization">
-                    <section class="product_gallery">
-                        <div id="carouselExampleIndicators" class="product_carousel carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-indicators" id="carousel-indicators"></div>
-                            <div class="carousel-inner" id="carousel-inner"></div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                            </button>
-                        </div>
-                    </section>
-                    <section class="product_info">
-                        <p class="productPrice" id="productPrice"></p>
-                        <a class="productBuyLink" id="productBuyLink" href="${item.link_do_pagamento}" type="button"></a>
-                        <p class="productLicence" id="productLicence"></p>
-                        <div class="collectionContainer" id="collectionContent">
-                        </div>
-                    </section>
-                </div>
-                <section class="descriptionCollapseContainer text-center">
-                    <button class="descriptionCollapseBtn" type="button" data-bs-toggle="collapse" data-bs-target="#descriptionCollapseBox" aria-expanded="false" aria-controls="descriptionCollapseBox" id="descriptionCollapse">
-                        
-                    </button>
+    <main>
+        <?php
 
-                    <div class="descriptionCollapseBox collapse" id="descriptionCollapseBox">
-                        <br>
-                        <div class="description" id="descriptionTxt">
-                        </div>
-                        <div class="arquives" id="receivedArquives">
-                        </div>
-                        <h2>Tags:</h2>
-                        <div class="tags" id="receivedTags">
-                        </div>
-                    </div>
-                </section>
-                <section class="productDevlogs">
-                    <h2 id="devlogTitle">
-                    </h2>
-                    <ul class="devlogUl" id="devlogUl">
+        define('BASE_URL', 'http://localhost/siteJon/');
 
-                    </ul>
-                </section>
-                <div class="container" id="disqus_thread"></div>
-        </article>
+        if (isset($_GET["param"])) {
+
+            $param = $_GET["param"];
+            //separar o parametro por /
+
+            $p = explode("/", $param);
+
+            // print_r($p);
+        }
+
+        $page = $p[0] ?? "home";
+        $id = $p[1] ?? null;
+
+        if($id){
+            $_GET["id"] = $id;
+        }
+
+        $pagina = "pages/{$page}.php";
+
+        //verificar se a pagina existe
+
+        if (file_exists($pagina)) {
+            // echo "<!-- Incluindo: $pagina -->";
+            include $pagina;
+        } else {
+            include "pages/erro404.php";
+        }
+
+        ?>
     </main>
     <footer class="footer">
         <div class="footerClass">
             <p>
-                <a href="index.html">
-                    <img src="/assets/all_pages_use_images/header/logoCentralizado.avif" alt="Joncrow - 3D models">
+                <a href="home">
+                    <img src="assets/all_pages_use_images/header/logoCentralizado.avif" alt="Joncrow - 3D models">
                 </a>
             </p>
             <p class="iconRedes">
@@ -150,9 +165,40 @@
             <br>
         </div>
     </footer>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-<script src="/assets/js/all_pages_use/index.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/assets/js/product/product.js"></script>
+<script src="assets/js/all_pages_use/index.js"></script>
+<?php
+
+        if (isset($_GET["param"])) {
+
+            $param = $_GET["param"];
+            //separar o parametro por /
+
+            $p = explode("/", $param);
+
+            // print_r($p);
+        }
+
+        $page = $p[0] ?? "home";
+
+        $jsMap = [
+            "home" => [
+                "assets/js/main_page/finalCall.js",
+                "assets/js/main_page/updateTimer.js"
+            ],
+            "contact" => ["assets/js/contact/contact.js"],
+            "FAQ" => [],
+            "store" => ["assets/js/store/storeFilter.js"],
+            "product" => ["assets/js/product/product.js"]
+        ];
+
+        if (isset($jsMap[$page])) {
+            foreach ($jsMap[$page] as $jsFile) {
+                if (file_exists($jsFile)) {
+                    echo "<script src=\"$jsFile\"></script>";
+                }
+            }
+        }
+?>
 </html>

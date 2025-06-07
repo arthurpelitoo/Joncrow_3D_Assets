@@ -11,10 +11,12 @@ function formatarPreco(preco){
     return isFinite(preco) ? `$${Number(preco).toFixed(2)}` : preco;
 }
 
+const BASE_URL = window.location.origin.includes("localhost") ? "/siteJon/" : "/";
+
 async function carregarProduto() {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
-    const res = await fetch('/assets/dados/modelos.json');
+    const res = await fetch('assets/dados/modelos.json');
     const dados = await res.json();
     const item = dados.find(prod => prod.id == id) || JSON.parse(localStorage.getItem('produtoItem'));
 
@@ -197,6 +199,7 @@ async function carregarProduto() {
 
         item.imagens.forEach((img, index) => {
             // criar indicadores
+            const imagemCard = `${BASE_URL}${img}`;
             const button = document.createElement('button');
             button.type = 'button';
             button.setAttribute('data-bs-target', '#carouselExampleIndicators');
@@ -209,7 +212,7 @@ async function carregarProduto() {
             if(index === 0) div.classList.add('active');
 
             const image = document.createElement('img');
-            image.src = img;
+            image.src = imagemCard;
             image.classList.add('d-block', 'w-100');
             image.alt = `Slide ${index + 1}`;
 
