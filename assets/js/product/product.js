@@ -18,7 +18,8 @@ async function carregarProduto() {
     const id = urlParams.get('id');
     const res = await fetch('assets/dados/modelos.json');
     const dados = await res.json();
-    const item = dados.find(prod => prod.id == id) || JSON.parse(localStorage.getItem('produtoItem'));
+    const item = dados.find(prod => prod.id == id);
+    // || JSON.parse(localStorage.getItem('produtoItem'));
 
     const produto = document.getElementById('detailProduct');
 
@@ -181,9 +182,32 @@ async function carregarProduto() {
 
         //pra ele passar por todas as descrições
 
+        //index 1
+
         const description = document.getElementById('descriptionTxt');
 
-        item.descricao[idioma].forEach((valor) => {
+        item.descricao[idioma].forEach((valor, index) => {
+
+            if(index === 2 && item.extra_link){
+
+                const paragraphGroup = document.createElement('p');
+                paragraphGroup.classList.add('paragraphStyle');
+
+                const clicklink = document.createElement('a');
+                clicklink.type = 'button';
+                clicklink.classList.add('clicklinkStyle');
+                clicklink.href = item.extra_link.url;
+                clicklink.textContent = item.extra_link.click[idioma];
+
+                const linkPhrase = document.createElement('p');
+                linkPhrase.classList.add('linkPhraseStyle');
+                linkPhrase.textContent = item.extra_link.label[idioma];
+
+                description.appendChild(paragraphGroup);
+                paragraphGroup.appendChild(clicklink);
+                paragraphGroup.appendChild(linkPhrase);
+
+            }
             const paragraph = document.createElement('p');
             paragraph.classList.add('paragraphStyle');
 

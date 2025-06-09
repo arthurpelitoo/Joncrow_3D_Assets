@@ -8,20 +8,16 @@
 // output aba de navegação revelada
 
 
-const button = document.getElementById("header-menu");
-const navegacao = document.getElementById("header-nav");
+// const button = document.getElementById("header-menu");
+// const navegacao = document.getElementById("header-nav");
 // const header = document.getElementById("header"); // comentei para guardar depois essa ideia para outro projeto. (deixar header invisivel no topo e depois de scrollar fica com alguma cor de fundo.)
 
-console.log(button, navegacao, header);
+// console.log(button, navegacao, header);
 
-function toggleEvent(){
-
-    if (navegacao.classList.contains("active")){
-        navegacao.classList.remove("active");
-    } else{
-        navegacao.classList.add("active");
-    }
-}
+// function showMenu(){
+//     let menu = document.querySelector('.header-nav');
+//     menu.classList.toggle("active");
+// }
 
 // function headerChange(){ // comentei para guardar depois essa ideia para outro projeto.
 
@@ -33,6 +29,19 @@ function toggleEvent(){
 
 // }
 
-button.addEventListener("click", toggleEvent);
-
 // window.addEventListener("scroll", headerChange); // comentei para guardar depois essa ideia para outro projeto.
+
+const BASE_URL = window.location.origin.includes("localhost") ? "/siteJon/" : "/";
+
+async function carregarDados() {
+    const res = await fetch("assets/dados/modelos.json");
+    dados = await res.json();
+}
+
+async function verMais(id){
+    const res = await fetch("assets/dados/modelos.json");
+    dados = await res.json();
+    const item = dados.find(produto => produto.id === id);
+    localStorage.setItem('produtoItem', JSON.stringify(item));
+    window.location.href = `${BASE_URL}product/${id}`;
+}

@@ -6,10 +6,10 @@
                 <h1 class="faixa">
                     <span class="faixaTitle">
                         <i class="fa-solid fa-envelope"></i>
-                        Get in touch
+                        Send a Message
                     </span>
                 </h1>
-                <form action="https://formsubmit.co/joncraucolecoes@gmail.com" id="formId" method="post" class="col-12 d-flex flex-column justify-content-center formContato" name="formContato">
+                <form action="https://formsubmit.co/joncraucolecoes@gmail.com" id="formId" method="POST" target="_blank" class="col-12 d-flex flex-column justify-content-center formContato" name="formContato">
                     
                     <div class="step active">
                         <label for="referencia" class="labelForm">How did you find this website? *</label>
@@ -26,22 +26,28 @@
                     <div class="step">
                         <label for="nome" class="labelForm">Enter your name: *</label>
                         <input class="inputForm" type="text" name="nome" id="nome" placeholder="Enter your name">
-                        <button type="button" class="prev">Prev</button>
-                        <button type="button" class="next">Next</button>
+                        <div class="btngroup">
+                            <button type="button" class="prev">Prev</button>
+                            <button type="button" class="next">Next</button>
+                        </div>
                     </div>
 
                     <div class="step">
                         <label for="email" class="labelForm">Enter your email: *</label>
                         <input class="inputForm" type="text" name="email" id="email" placeholder="Enter your email">
-                        <button type="button" class="prev">Prev</button>
-                        <button type="button" class="next">Next</button>
+                        <div class="btngroup">
+                            <button type="button" class="prev">Prev</button>
+                            <button type="button" class="next">Next</button>
+                        </div>
                     </div>
 
                     <div class="step">
                         <label for="assunto" class="labelForm">What is the subject? *</label>
                         <input class="inputForm" type="text" name="assunto" id="assunto" placeholder="Question, Suggestion, Feedback">
-                        <button type="button" class="prev">Prev</button>
-                        <button type="button" class="next">Next</button>
+                        <div class="btngroup">
+                            <button type="button" class="prev">Prev</button>
+                            <button type="button" class="next">Next</button>
+                        </div>
                     </div>
 
                     <div class="step">
@@ -51,20 +57,23 @@
                             <option value="Yes">Yes</option>
                             <option value="No">No</option>
                         </select>
-                        <button type="button" class="prev">Prev</button>
-                        <button type="button" class="next">Next</button>
+                        <div class="btngroup">
+                            <button type="button" class="prev">Prev</button>
+                            <button type="button" class="next">Next</button>
+                        </div>
                     </div>
 
                     <div class="step">
                         <label for="mensagem" class="labelForm">Write a Message: *</label>
                         <textarea class="textAreaForm" maxlength="300" name="mensagem" id="mensagem" placeholder=""></textarea>
                         <br>
-                        <input type="hidden" name="_next" value="http://127.0.0.1:5500/pages/contact.html">
-                        <button type="button" class="prev">Prev</button>
-                        <button class="btn" id="button" type="submit">
-                            <i class="fas fa-check"></i>
-                            Send
-                        </button>
+                        <!-- <input type="hidden" name="_next" value="http://localhost/siteJon/contact"> -->
+                        <div class="btngroup">
+                            <button type="button" class="prev">Prev</button>
+                            <button class="btnsubmit" id="button" type="submit">
+                                Send
+                            </button>
+                        </div>
                     </div>
                 </form>
                 <div class="progress-bar">

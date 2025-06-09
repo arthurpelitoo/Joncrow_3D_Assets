@@ -25,21 +25,6 @@ function updateProgressBar(){
 
 form.querySelectorAll('.next').forEach(btn => {
     btn.addEventListener('click', () => {
-        const currentInputs = steps[currentStep].querySelectorAll('input, select, textarea');
-        for(let input of currentInputs){
-            if(!input.value.trim()){
-                title = "Error!";
-                message = "Please fill out the field.";
-                openModal();
-                return;
-            }
-            if(input.name === 'email' && !validarEmail(input.value.trim())){
-                title = "Error!";
-                message = "The informed email it's not valid";
-                openModal();
-                return;
-            }
-        }
         if(currentStep < steps.length - 1){
             currentStep++;
             updateStep(currentStep);
@@ -66,51 +51,100 @@ function formContatoPreenchido(event) {
     const urgencia = form.urgencia.value.trim();
     const mensagem = form.mensagem.value.trim();
 
-    if(referencia == "" || nome == "" || email == "" || assunto == "" || urgencia == "" || mensagem == ""){
-        title = "Error!";
-        message = "All fields must be completed.";
+    switch (true) {
+        case (referencia === "" && nome === "" && email === "" && assunto === "" && urgencia === "" && mensagem === ""):
+            title = "Error!";
+            message = "All fields must be completed.";
+            break;
 
-        openModal();
-        event.preventDefault();
-        return;
-    } if(!validarEmail(email)){
-        title = "Error!";
-        message = "The informed email it's not valid";
-        
-        openModal();
-        event.preventDefault();
-        return;
+        case(referencia === ""):
+            title = "Error!";
+            message = "Please select how you found this website.";
+            break;
+
+        case (nome === ""):
+            title = "Error!";
+            message = "Please enter your name.";
+            break;
+
+        case (email === ""):
+            title = "Error!";
+            message = "Please enter your email.";
+            break;
+
+        case (!validarEmail(email)):
+            title = "Error!";
+            message = "The informed email is not valid.";
+            break;
+
+        case (assunto === ""):
+            title = "Error!";
+            message = "Please provide a subject.";
+            break;
+
+        case (urgencia === ""):
+            title = "Error!";
+            message = "Please indicate the urgency.";
+            break;
+
+        case (mensagem === ""):
+            title = "Error!";
+            message = "Please provide a message.";
+            break;
+
+        default:
+            // Sucesso
+            title = "Success!";
+            message = "The form has been successfully submitted!";
+            openModal();
+
+            // ✅ (Opcional) Desabilita o botão de envio por alguns segundos
+            const sendBtn = form.querySelector('[type="submit"]');
+            if (sendBtn) {
+                sendBtn.disabled = true;
+                setTimeout(() => {
+                    sendBtn.disabled = false;
+                    // ✅ Limpa os campos do formulário
+                    form.reset();
+                    // ✅ Zera a barra de progresso se tiver (exemplo)
+                    const progress = document.querySelector('.progress');
+                    if(progress) progress.style.width = '0%';
+                    currentStep = 0;
+                    updateStep(currentStep);
+                }, 3000); // habilita novamente após 3 segundos
+            }
+
+            return; // Permite o envio
     }
-    
-    title = "Success!";
-    message = "The form has been successfully submitted to my Email!"
+
     openModal();
+    event.preventDefault(); // Impede o envio se caiu em algum `case`
 };
 
 form.addEventListener("submit", formContatoPreenchido);
 
 function openModal(){
 
-    let modal, modalContainerTitle, modalTitle, modalContainerMessage, modalMessage, modalButton, button;
+    // let modal, modalContainerTitle, modalTitle, modalContainerMessage, modalMessage, modalButton, button;
 
-    modal = document.createElement('div');
+    const modal = document.createElement('div');
     modal.classList.add('modal');
 
-    modalContainerTitle = document.createElement('div');
+    const modalContainerTitle = document.createElement('div');
     modalContainerTitle.classList.add('modalContainerTitle');
-    modalTitle = document.createElement('h3');
+    const modalTitle = document.createElement('h3');
     modalTitle.classList.add('modalTitle');
     modalTitle.textContent = `${title}`;
 
-    modalContainerMessage = document.createElement('div');
+    const modalContainerMessage = document.createElement('div');
     modalContainerMessage.classList.add('modalContainerMessage');
-    modalMessage = document.createElement('p');
+    const modalMessage = document.createElement('p');
     modalMessage.classList.add('modalMessage');
     modalMessage.textContent = `${message}`;
 
-    modalButton = document.createElement('div');
+    const modalButton = document.createElement('div');
     modalButton.classList.add('modalButton');
-    button = document.createElement('button');
+    const button = document.createElement('button');
     button.onclick = closeModal;
     button.textContent = "Ok!"
 
@@ -134,8 +168,18 @@ function openModal(){
 }
 
 function closeModal(){
-    document.getElementById("modal-container").style.display = "none";
-    document.getElementById("modal-overlay").style.display = "none";
-    document.getElementById("modal-container").style.opacity = "0";
-    document.getElementById("modal-overlay").style.opacity = "0";
+    const modalContainer = document.getElementById("modal-container");
+    const modalOverlay = document.getElementById("modal-overlay");
+
+    // Esconde o modal
+    modalContainer.style.display = "none";
+    modalOverlay.style.display = "none";
+    modalContainer.style.opacity = "0";
+    modalOverlay.style.opacity = "0";
+
+    // 🧹 Remove o modal inserido dinamicamente
+    const modal = modalContainer.querySelector(".modal");
+    if (modal) {
+        modal.remove(); // ou modalContainer.removeChild(modal);
+    }
 }

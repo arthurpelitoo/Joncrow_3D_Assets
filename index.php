@@ -54,7 +54,7 @@
                     </a>
                 </div>
                 <div class="flex-col2">
-                    <a href="#" class="header-menu" id="header-menu">
+                    <a href="javascript:showMenu()" class="header-menu" id="header-menu">
                         <i class="fas fa-bars"></i>
                     </a>
                     <nav class="header-nav" id="header-nav">
@@ -75,7 +75,7 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a class="dropdown-item" type="button" href="#">
+                                            <a class="dropdown-item" type="button" href="">
                                                 PT-BR
                                             </a>
                                         </li>
@@ -167,6 +167,14 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+<script>
+
+    function showMenu(){
+        let menu = document.querySelector('.header-nav');
+        menu.classList.toggle("active");
+    }
+
+</script>
 <script src="assets/js/all_pages_use/index.js"></script>
 <?php
 

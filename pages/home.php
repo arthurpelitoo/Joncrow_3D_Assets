@@ -129,7 +129,7 @@
                                     Creator support
                                 </h5>
                                 <br>
-                                <p class="card_description">Questions? Requests? I’m here to help.</p>
+                                <p class="card_description">Questions? Requests? I’m here to <a class="helplink" href="contact" type="button">help</a>.</p>
                             </div>
                         </div>
                     </div>
@@ -143,7 +143,7 @@
                         Explore character model categories ready for purchase:
                     </h1>
                     <div class="card_organizing_category rounded-2 text-center col-12 col-md-4">
-                        <a href="/formal-models" class="card-link text-decoration-none">
+                        <a type="button" onclick="verMais(37)" class="card-link text-decoration-none">
                             <div class="card_item card w-100">
                                 <iframe loading="lazy" title="Formal Man 6" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow=" fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/bd725694133b4458a4472115cfc80853/embed?autospin=1&autostart=0&preload=0&transparent=1&ui_theme=dark&dnt=1"></iframe>
                                 <div class="card-body">
@@ -156,7 +156,7 @@
                         </a>
                     </div>
                     <div class="card_organizing_category rounded-2 text-center col-12 col-md-4">
-                        <a href="/models" class="card-link text-decoration-none">
+                        <a type="button" onclick="verMais(60)" class="card-link text-decoration-none">
                             <div class="card_item card w-100">
                                 <iframe loading="lazy" title="Random Npc 7" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow=" fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/ba213fce681646d58268943850246688/embed?autospin=1&autostart=0&preload=0&transparent=1&dnt=1"></iframe>
                                 <div class="card-body">
@@ -169,7 +169,7 @@
                         </a>
                     </div>
                     <div class="card_organizing_category rounded-2 text-center col-12 col-md-4">
-                        <a href="/models" class="card-link text-decoration-none">
+                        <a type="button" onclick="verMais(7)" class="card-link text-decoration-none">
                             <div class="card_item card w-100">
                                 <iframe loading="lazy" title="Young Woman" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow=" fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/c9647e669fa643e5bef15aef3d0be572/embed?autospin=1&autostart=0&preload=0&transparent=1&dnt=1"></iframe>
                                 <div class="card-body">

@@ -32,12 +32,12 @@
 
                     <div class="descriptionCollapseBox collapse" id="descriptionCollapseBox">
                         <br>
-                        <div class="description" id="descriptionTxt">
+                        <div class="description container" id="descriptionTxt">
                         </div>
-                        <div class="arquives" id="receivedArquives">
+                        <div class="arquives container" id="receivedArquives">
                         </div>
-                        <h2>Tags:</h2>
-                        <div class="tags" id="receivedTags">
+                        <h2 class="container">Tags:</h2>
+                        <div class="tags container" id="receivedTags">
                         </div>
                     </div>
                 </section>
