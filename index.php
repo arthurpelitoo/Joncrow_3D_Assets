@@ -51,7 +51,7 @@
     $ogDesc = htmlspecialchars($firstItem['descricao'][$idioma][0]);
     $ogImage = $firstItem['imagem_card'];
 
-    $siteBaseUrl = "https://www.joncrow.rf.gd";
+    $siteBaseUrl = "https://joncrow.rf.gd";
 
     $seoMap = [
         "home" => [
