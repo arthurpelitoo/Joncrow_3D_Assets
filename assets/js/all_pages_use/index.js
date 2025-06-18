@@ -30,18 +30,3 @@
 // }
 
 // window.addEventListener("scroll", headerChange); // comentei para guardar depois essa ideia para outro projeto.
-
-const BASE_URL = window.location.origin.includes("localhost") ? "/siteJon/" : "/";
-
-async function carregarDados() {
-    const res = await fetch("assets/dados/modelos.json");
-    dados = await res.json();
-}
-
-async function verMais(id){
-    const res = await fetch("assets/dados/modelos.json");
-    dados = await res.json();
-    const item = dados.find(produto => produto.id === id);
-    localStorage.setItem('produtoItem', JSON.stringify(item));
-    window.location.href = `${BASE_URL}product/${id}`;
-}

@@ -1,0 +1,85 @@
+
+body{
+    background: linear-gradient(1deg, var(--cardColors), var(--mainColor));
+    background-image: url(/assets/faq_page_images/FAQ_Background.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.faqContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding-top: 16rem;
+    padding-bottom: 8rem;
+    gap: 5rem;
+}
+
+.faqTitle{
+    width: fit-content;
+    align-self: center;
+    text-align: center;
+    font: 1.4em var(--font-title);
+    color: var(--titleMainColor) !important;
+    background: linear-gradient(1deg, var(--cardColors), var(--mainColor));
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.questionCollapse{
+    width: 60vw;
+    background-color: var(--cardColors);
+    position: relative;
+    z-index: 3;
+    border-radius: 5px;
+}
+
+.questionCollapse .question-collapse-btn{
+    width: 60vw;
+    border: 0;
+    display: block;
+    padding: 1.5em;
+    color: var(--textColor) !important;
+    background-color: var(--terciaryColor);
+    font-family: var(--font-default);
+    font-size: medium;
+    text-decoration: none;
+    transition: ease-in-out 0.3s;
+    border-radius: 5px;
+}
+
+.questionCollapse .question-collapse-btn:hover{
+    background-color: var(--accentHoverColor);
+    color: var(--btnTextColorhover) !important;
+}
+
+.questionCollapse .question-text-collapse{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.questionCollapse .question-text-collapse.show{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.helplink{
+    color: var(--terciaryColor);
+    text-decoration: underline;
+}
+
+.helplink:hover{
+    color: var(--accentHoverColor);
+}
+
+.questionCollapse .question-text-collapse p{
+    font: 1em var(--font-default);
+    color: var(--textColor);
+}

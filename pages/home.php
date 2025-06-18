@@ -1,19 +1,19 @@
-        <?php
-            echo "<!-- Estou em: " . __FILE__ . " -->";
-        ?>
-        
+
+        <video class="grain-effect" autoplay loop muted playsinline>
+            <source src="<?= BASE_URL ?>assets/main_page_images/graineffect.webm" type="video/webm">
+        </video>
         <section class="banner_section">
                     <div class="banner_content container">
                         <div class="banner_align row align-items-center gy-2">
                             <div class="banner_box d-flex flex-column rounded-2 col-12 col-md-5 align-items-center text-center justify-content-center">
                                 <h2 class="banner_cardTitle text-justify mb-2">
-                                   High-quality low poly 3D models for your game, animation, or prototype.
+                                   Build your game world faster with clean, consistent low poly models.
                                 </h2>
                                 <p class="banner_cardParagraph">
-                                    Browse a growing collection of characters, monsters, and props — all optimized for Unity, Unreal, Godot, and more.
+                                    Characters, creatures and props — fully optimized, lightweight, and easy to import into Unity, Unreal, Godot, or any custom engine.
                                 </p>
-                                <a class="bannerBtnCta" type="button" href="<?php echo BASE_URL; ?>pages/store.html">
-                                    Explore Models
+                                <a class="bannerBtnCta" type="button" href="<?= BASE_URL ?>store">
+                                    Explore the Full Asset Store
                                 </a>
                             </div>
                             <div class="iframe_div col-12 col-md-7">
@@ -42,19 +42,19 @@
 
             <div class="special-offer-collapse collapse" id="specialOfferCollapse">
                 <div class="special-offer-card card col-10 col-md-6">
-                    <img src="<?php echo BASE_URL; ?>assets/main_page_images/section_category/3D_characters_pack_ALL_IN_ONE_cardimg.avif" alt="Special Bundle" class="img-fluid">
+                    <img src="<?= BASE_URL ?>assets/main_page_images/section_category/3D_characters_pack_ALL_IN_ONE_cardimg.avif" alt="Special Bundle" class="img-fluid">
                     <div class="special-offer-card-body card-body">
                         <h5 class="card_title">Bundle with all character models</h5>
                         <p class="card_description">Get 55 High-quality low poly 3D models for your game, animation, or prototype in one shot on itch.io!</p>
-                        <a href="/models" class="card_btn">View bundle</a>
+                        <a href="<?= BASE_URL ?>product/62" class="card_btn">View bundle</a>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="card_section py-5">
+        <section class="card_section">
             <div class="card_section_content container">
                 <div class="card_section_align row align-items-center gy-5">
-                    <h1 class="card_section_title text-center">Why choose these models?</h1>
+                    <h1 class="card_section_title text-center">Why Choose Our Low Poly 3D Models for Your Game?</h1>
                     <div class="card_organizing d-flex rounded-2 text-center col-12 col-md-6 col-lg-4">
                         <div class="card_item card w-100 p-2">
                             <br>
@@ -136,79 +136,82 @@
                 </div>
             </div>
         </section>
-        <section class="section_category w-100 pt-5 pb-4">
-            <div class="section_category_container container">
-                <div class="section_category_align row align-items-center justify-content-center gy-3">
-                    <h1 class="section_category_title text-center">
-                        Explore character model categories ready for purchase:
-                    </h1>
-                    <div class="card_organizing_category rounded-2 text-center col-12 col-md-4">
-                        <a type="button" onclick="verMais(37)" class="card-link text-decoration-none">
-                            <div class="card_item card w-100">
-                                <iframe loading="lazy" title="Formal Man 6" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow=" fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/bd725694133b4458a4472115cfc80853/embed?autospin=1&autostart=0&preload=0&transparent=1&ui_theme=dark&dnt=1"></iframe>
-                                <div class="card-body">
-                                    <h5 class="card_title mb-2">
-                                        "Formal" characters
-                                    </h5>
-                                    <p class="card_description">These guys are smart as hell</p>
+        <section class="tvimage">
+            <img class="tvimage-bg" src="<?= BASE_URL ?>assets/main_page_images/monitor_frame1920.png" alt="monitor frame">
+            <section class="section_category w-100 pt-5 pb-4">
+                <div class="section_category_container container">
+                    <div class="section_category_align row gy-3">
+                        <h1 class="section_category_title text-center">
+                            Explore Game-Ready 3D Character Categories Available Now:
+                        </h1>
+                        <div class="card_organizing_category rounded-2 text-center col-12 col-md-6 col-lg-4 h-100">
+                            <a type="button" href="<?= BASE_URL ?>product/37" class="card-link text-decoration-none">
+                                <div class="card_item card">
+                                    <iframe loading="lazy" title="Formal Man 6" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow=" fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/bd725694133b4458a4472115cfc80853/embed?autospin=1&autostart=0&preload=0&transparent=1&ui_theme=dark&dnt=1"></iframe>
+                                    <div class="card-body">
+                                        <h5 class="card_title mb-2">
+                                            "Formal" characters
+                                        </h5>
+                                        <p class="card_description">These guys are smart as hell</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card_organizing_category rounded-2 text-center col-12 col-md-4">
-                        <a type="button" onclick="verMais(60)" class="card-link text-decoration-none">
-                            <div class="card_item card w-100">
-                                <iframe loading="lazy" title="Random Npc 7" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow=" fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/ba213fce681646d58268943850246688/embed?autospin=1&autostart=0&preload=0&transparent=1&dnt=1"></iframe>
-                                <div class="card-body">
-                                    <h5 class="card_title mb-2">
-                                        "Random Npc" characters
-                                    </h5>
-                                    <p class="card_description">Random people</p>
+                            </a>
+                        </div>
+                        <div class="card_organizing_category rounded-2 text-center col-12 col-md-6 col-lg-4 h-100">
+                            <a type="button" href="<?= BASE_URL ?>product/60" class="card-link text-decoration-none">
+                                <div class="card_item card">
+                                    <iframe loading="lazy" title="Random Npc 7" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow=" fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/ba213fce681646d58268943850246688/embed?autospin=1&autostart=0&preload=0&transparent=1&dnt=1"></iframe>
+                                    <div class="card-body">
+                                        <h5 class="card_title mb-2">
+                                            "Random Npc" characters
+                                        </h5>
+                                        <p class="card_description">Random people</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card_organizing_category rounded-2 text-center col-12 col-md-4">
-                        <a type="button" onclick="verMais(7)" class="card-link text-decoration-none">
-                            <div class="card_item card w-100">
-                                <iframe loading="lazy" title="Young Woman" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow=" fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/c9647e669fa643e5bef15aef3d0be572/embed?autospin=1&autostart=0&preload=0&transparent=1&dnt=1"></iframe>
-                                <div class="card-body">
-                                    <h5 class="card_title mb-2">
-                                        "Young" characters
-                                    </h5>
-                                    <p class="card_description">Young people</p>
+                            </a>
+                        </div>
+                        <div class="card_organizing_category rounded-2 text-center col-12 col-md-6 col-lg-4 h-100">
+                            <a type="button" href="<?= BASE_URL ?>product/7" class="card-link text-decoration-none">
+                                <div class="card_item card">
+                                    <iframe loading="lazy" title="Young Woman" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow=" fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/c9647e669fa643e5bef15aef3d0be572/embed?autospin=1&autostart=0&preload=0&transparent=1&dnt=1"></iframe>
+                                    <div class="card-body">
+                                        <h5 class="card_title mb-2">
+                                            "Young" characters
+                                        </h5>
+                                        <p class="card_description">Young people</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <section class="section_cta_class w-100 pb-5">
-            <h4 class="section_cta_title col-6 text-center">
-                These and other character types are also in this bundle or sold separately:
-            </h4>
-            <div class="section_cta rounded-2 text-center">
-                <div class="section_cta_item">
-                    <div class="section_cta_img">
-                        <img class="section_cta_img" src="<?php echo BASE_URL; ?>assets/main_page_images/section_category/3D_characters_pack_ALL_IN_ONE_cardimg.avif">
-                    </div>
-                    <div class="section_cta_body">
-                        <span class="section_badge badge" id="section_badge">
-                            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M2 9.453v-9.453h9.352l10.648 10.625-3.794 3.794 1.849 4.733-12.34 4.848-5.715-14.547zm1.761 1.748l4.519 11.503 10.48-4.118-1.326-3.395-4.809 4.809-8.864-8.799zm-.761-10.201v8.036l9.622 9.552 7.963-7.962-9.647-9.626h-7.938zm12.25 8.293c-.415-.415-.865-.617-1.378-.617-.578 0-1.227.241-2.171.803-.682.411-1.118.585-1.456.585-.361 0-1.083-.409-.961-1.219.052-.345.25-.696.572-1.019.652-.652 1.544-.848 2.276-.107l.744-.744c-.476-.475-1.096-.792-1.761-.792-.566 0-1.125.228-1.663.677l-.626-.626-.698.699.653.652c-.569.826-.842 2.021.076 2.937 1.011 1.011 2.188.541 3.413-.232.6-.379 1.083-.563 1.475-.563.589.001 1.18.498 1.078 1.258-.052.386-.26.764-.621 1.122-.451.451-.904.679-1.347.679-.418 0-.747-.192-1.049-.462l-.739.739c.463.458 1.082.753 1.735.753.544 0 1.087-.201 1.612-.597l.54.538.697-.697-.52-.521c.743-.896 1.157-2.209.119-3.247zm-9.25-7.292c1.104 0 2 .896 2 2s-.896 2-2 2-2-.896-2-2 .896-2 2-2zm0 1c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1z"/>
-                            </svg>
-                            Special Offer
-                        </span>
-                        <h5 class="section_title" id="section_title">
-                            Bundle of 54 3D model characters for <del>$54</del> <strong>$27</strong> USD
-                        </h5>
-                        <p class="section_timer active text-center" id="timer"></p>
-                        <a href="/models" class="section_link">View bundle</a>
+            </section>
+            <section class="section_cta_class w-100 pb-5">
+                <h4 class="section_cta_title col-6 text-center">
+                    These and other character types are also in this bundle or sold separately:
+                </h4>
+                <div class="section_cta rounded-2 text-center">
+                    <div class="section_cta_item">
+                        <div class="section_cta_img">
+                            <img class="section_cta_img" src="<?php echo BASE_URL; ?>assets/main_page_images/section_category/3D_characters_pack_ALL_IN_ONE_cardimg.avif">
+                        </div>
+                        <div class="section_cta_body">
+                            <span class="section_badge badge" id="section_badge">
+                                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M2 9.453v-9.453h9.352l10.648 10.625-3.794 3.794 1.849 4.733-12.34 4.848-5.715-14.547zm1.761 1.748l4.519 11.503 10.48-4.118-1.326-3.395-4.809 4.809-8.864-8.799zm-.761-10.201v8.036l9.622 9.552 7.963-7.962-9.647-9.626h-7.938zm12.25 8.293c-.415-.415-.865-.617-1.378-.617-.578 0-1.227.241-2.171.803-.682.411-1.118.585-1.456.585-.361 0-1.083-.409-.961-1.219.052-.345.25-.696.572-1.019.652-.652 1.544-.848 2.276-.107l.744-.744c-.476-.475-1.096-.792-1.761-.792-.566 0-1.125.228-1.663.677l-.626-.626-.698.699.653.652c-.569.826-.842 2.021.076 2.937 1.011 1.011 2.188.541 3.413-.232.6-.379 1.083-.563 1.475-.563.589.001 1.18.498 1.078 1.258-.052.386-.26.764-.621 1.122-.451.451-.904.679-1.347.679-.418 0-.747-.192-1.049-.462l-.739.739c.463.458 1.082.753 1.735.753.544 0 1.087-.201 1.612-.597l.54.538.697-.697-.52-.521c.743-.896 1.157-2.209.119-3.247zm-9.25-7.292c1.104 0 2 .896 2 2s-.896 2-2 2-2-.896-2-2 .896-2 2-2zm0 1c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1z"/>
+                                </svg>
+                                Special Offer
+                            </span>
+                            <h5 class="section_title" id="section_title">
+                                Bundle of 55 3D model characters for <del>$55</del> <strong>$27</strong> USD
+                            </h5>
+                            <p class="section_timer active text-center" id="timer"></p>
+                            <a href="<?= BASE_URL ?>product/62" class="section_link">View bundle</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </section>
-        <section class="section_feedbacks py-5">
+        <section class="section_feedbacks">
             <h1 class="section_feedbacks_title text-center">
                 Reviews from customers on itch.io:
             </h1>
@@ -260,7 +263,7 @@
             </div>
         </section>
         <section class="section_finalcall">
-            <img src="<?php echo BASE_URL; ?>assets/main_page_images/Final.png" class="tv-bg" alt="Retro TV">
+            <img src="<?= BASE_URL ?>assets/main_page_images/Final.png" class="tv-bg" alt="Retro TV">
             <h1 class="section_finalcall_title text-center">
                 Bring your ideas to life!
                 <span class="icon">
@@ -272,10 +275,10 @@
                     Start to explore 50+ 3D models
                 </p>
                 <div class="finalcall_btn_group">
-                    <a class="section_finalcall_btn1" href="<?php echo BASE_URL; ?>pages/store.html" type="button" id="btn1">
+                    <a class="section_finalcall_btn1" href="store" type="button" id="btn1">
                         See Asset Store
                     </a>
-                    <a class="section_finalcall_btn2" type="button" id="btn2">
+                    <a class="section_finalcall_btn2" href="FAQ" type="button" id="btn2">
                         F.A.Q
                     </a>
                 </div>

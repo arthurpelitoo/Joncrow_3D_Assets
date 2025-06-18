@@ -13,7 +13,8 @@ async function carregarDados() {
     mostrarCatalogo(dados);
 }
 
-const BASE_URL = window.location.origin.includes("localhost") ? "/siteJon/" : "/";
+// const BASE_URL = window.location.origin.includes("localhost") ? "/siteJon/" : "/";
+const BASE_URL = "https://joncrow.rf.gd/";
 
 function mostrarCatalogo(lista){
     const container = document.getElementById('product');

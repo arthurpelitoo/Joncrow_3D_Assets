@@ -1,0 +1,39 @@
+
+body{
+    background: linear-gradient(1deg, var(--cardColors), var(--mainColor));
+}
+
+.container{
+    width: 90% !important;
+}
+
+.bg{
+    margin-top: 16rem;
+    margin-bottom: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.img-center{
+    width: 350px;
+    height: 320px;
+}
+
+@media (max-width: 1000px){
+    .img-center{
+    width: 200px;
+    height: 170px;
+}
+}
+
+.center{
+    text-align: center;
+}
+
+h2{
+    font: 1.4em var(--font-title);
+    color: var(--titleMainColor) !important;
+    padding: 1rem;
+}

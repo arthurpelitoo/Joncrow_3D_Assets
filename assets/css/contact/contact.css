@@ -44,17 +44,17 @@ html, body {
 }
 
 body{
-    background-image: url(/siteJon/assets/contact_page_image/contactbackground.gif);
+    background-image: url(/assets/contact_page_image/contactbackground1.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
 
-@media (min-width: 1800px){
+/* @media (min-width: 1800px){
     body{
         background-image: url(/siteJon/assets/contact_page_image/contactbackground1.gif);
     }
-}
+} */
 
 * {
     margin: 0;
@@ -203,23 +203,14 @@ body{
     padding: 0.5rem;
 }
 
-.sectionSpace .container .faixa{
-    text-align: center;
-}
-
-.sectionSpace .container .faixa .faixaTitle{
-    font: 32px var(--font-default);
-    color: var(--textColor);
-    background: linear-gradient(180deg, var(--cardColors), var(--mainColor));
-    text-align: justify;
-    padding: 5px;
+.sectionSpace .container .faixaTitle{
+    width: fit-content;
+    justify-self: center;
+    font: 1.4em var(--font-title);
+    color: var(--titleMainColor) !important;
+    background: linear-gradient(1deg, var(--cardColors), var(--mainColor));
     border-radius: 5px;
-    line-height: 40px;
-}
-
-.sectionSpace .container .faixa .faixaTitle i{
-    color: var(--terciaryColor);
-    animation: pulse 1s infinite ease-in-out;
+    padding: 1rem;
 }
 
 .sectionSpace .container .formContato{
@@ -381,9 +372,9 @@ body{
     margin-bottom: 7rem;
 }
 
-.socialMedia h1{
+.socialMedia h2{
     color: var(--textColor);
-    font-family: var(--font-default);
+    font-family: var(--font-title);
 }
 
 .socialMedia .contact_ways{
@@ -465,6 +456,7 @@ body{
 
 .footer .iconRedes{
     display: flex;
+    flex-wrap: wrap;
     line-height: 30px;
     color: var(--textColor);
     font-family: var(--font-default);

@@ -3,15 +3,12 @@
         <div id="modal-overlay" class="modal-overlay"></div>
         <section class="sectionSpace">
             <div class="container">
-                <h1 class="faixa">
-                    <span class="faixaTitle">
-                        <i class="fa-solid fa-envelope"></i>
-                        Send a Message
-                    </span>
+                <h1 class="faixaTitle">
+                    Send a Message
                 </h1>
                 <form action="https://formsubmit.co/joncraucolecoes@gmail.com" id="formId" method="POST" target="_blank" class="col-12 d-flex flex-column justify-content-center formContato" name="formContato">
                     
-                    <div class="step active">
+                    <fieldset class="step active">
                         <label for="referencia" class="labelForm">How did you find this website? *</label>
                         <select class="inputForm" name="referencia" id="referencia">
                             <option value="">Select</option>
@@ -21,49 +18,49 @@
                             <option value="Other">Other</option>
                         </select>
                         <button type="button" class="next">Next</button>
-                    </div>
+                    </fieldset>
 
-                    <div class="step">
+                    <fieldset class="step">
                         <label for="nome" class="labelForm">Enter your name: *</label>
                         <input class="inputForm" type="text" name="nome" id="nome" placeholder="Enter your name">
-                        <div class="btngroup">
+                        <fieldset class="btngroup">
                             <button type="button" class="prev">Prev</button>
                             <button type="button" class="next">Next</button>
-                        </div>
-                    </div>
+                        </fieldset>
+                    </fieldset>
 
-                    <div class="step">
+                    <fieldset class="step">
                         <label for="email" class="labelForm">Enter your email: *</label>
                         <input class="inputForm" type="text" name="email" id="email" placeholder="Enter your email">
-                        <div class="btngroup">
+                        <fieldset class="btngroup">
                             <button type="button" class="prev">Prev</button>
                             <button type="button" class="next">Next</button>
-                        </div>
-                    </div>
+                        </fieldset>
+                    </fieldset>
 
-                    <div class="step">
+                    <fieldset class="step">
                         <label for="assunto" class="labelForm">What is the subject? *</label>
                         <input class="inputForm" type="text" name="assunto" id="assunto" placeholder="Question, Suggestion, Feedback">
-                        <div class="btngroup">
+                        <fieldset class="btngroup">
                             <button type="button" class="prev">Prev</button>
                             <button type="button" class="next">Next</button>
-                        </div>
-                    </div>
+                        </fieldset>
+                    </fieldset>
 
-                    <div class="step">
+                    <fieldset class="step">
                         <label for="urgencia" class="labelForm">Is this message urgent? *</label>
                         <select class="inputForm" name="urgencia" id="urgencia">
                             <option value="">Select</option>
                             <option value="Yes">Yes</option>
                             <option value="No">No</option>
                         </select>
-                        <div class="btngroup">
+                        <fieldset class="btngroup">
                             <button type="button" class="prev">Prev</button>
                             <button type="button" class="next">Next</button>
-                        </div>
-                    </div>
+                        </fieldset>
+                    </fieldset>
 
-                    <div class="step">
+                    <fieldset class="step">
                         <label for="mensagem" class="labelForm">Write a Message: *</label>
                         <textarea class="textAreaForm" maxlength="300" name="mensagem" id="mensagem" placeholder=""></textarea>
                         <br>
@@ -74,7 +71,7 @@
                                 Send
                             </button>
                         </div>
-                    </div>
+                    </fieldset>
                 </form>
                 <div class="progress-bar">
                     <div class="progress"></div>    
@@ -82,18 +79,18 @@
             </div>
         </section>
         <article class="socialMedia container">
-                <h1>
+                <h2>
                     <span class="faixaTitle">
                         Other ways to contact me
                     </span>
-                </h1>
+                </h2>
                 <div class="contact_ways">
                     <div class="contact_container">
                         <i class="fa-solid fa-envelope"></i>
                         <p class="contact_text">
                             Email
                         </p>
-                        <a href="mailto:jeovane.contact@gmail.com">
+                        <a href="mailto:jeovane.contact@gmail.com" aria-label="Send me an email">
                             jeovane.contact@gmail.com
                         </a>
                     </div>
@@ -102,7 +99,7 @@
                         <p class="contact_text">
                             Telegram:
                         </p>
-                        <a href="https://t.me/joncrow64" title="My Telegram" target="_blank" rel="noopener noreferrer">
+                        <a href="https://t.me/joncrow64" title="My Telegram" target="_blank" rel="noopener noreferrer" aria-label="My Telegram @joncrow64">
                             @joncrow64
                         </a>
                     </div>
