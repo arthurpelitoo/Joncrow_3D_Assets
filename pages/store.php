@@ -4,7 +4,7 @@
             <h1 class="sectionTitle">Asset Store</h1>
             <h2 class="sectionTitle2">Search for itens:</h2>
             <div class="filters">
-                <input class="searchInput" type="text" id="search" placeholder="Search for ex: characters or games">
+                <input class="searchInput" type="text" id="search" placeholder="Search random npc">
 
                 <div class="checkboxFilterContainer dropdown-center">
                     <a class="checkboxFilterBtn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">

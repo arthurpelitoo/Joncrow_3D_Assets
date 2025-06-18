@@ -7,10 +7,10 @@
                         <div class="banner_align row align-items-center gy-2">
                             <div class="banner_box d-flex flex-column rounded-2 col-12 col-md-5 align-items-center text-center justify-content-center">
                                 <h2 class="banner_cardTitle text-justify mb-2">
-                                   Build your game world faster with clean, consistent low poly models.
+                                   Build your game world faster with clean, consistent Low Poly 3D Models for Games.
                                 </h2>
                                 <p class="banner_cardParagraph">
-                                    Characters, creatures and props — fully optimized, lightweight, and easy to import into Unity, Unreal, Godot, or any custom engine.
+                                    Characters, creatures and buildings optimized for Unity, Unreal, Godot, Blender and other engines. Game-ready assets, affordable pricing, indie-friendly.
                                 </p>
                                 <a class="bannerBtnCta" type="button" href="<?= BASE_URL ?>store">
                                     Explore the Full Asset Store
@@ -45,7 +45,7 @@
                     <img src="<?= BASE_URL ?>assets/main_page_images/section_category/3D_characters_pack_ALL_IN_ONE_cardimg.avif" alt="Special Bundle" class="img-fluid">
                     <div class="special-offer-card-body card-body">
                         <h5 class="card_title">Bundle with all character models</h5>
-                        <p class="card_description">Get 55 High-quality low poly 3D models for your game, animation, or prototype in one shot on itch.io!</p>
+                        <p class="card_description">Get 55 High-quality Low Poly 3D Models for Games, animations, or prototype in one shot on itch.io!</p>
                         <a href="<?= BASE_URL ?>product/62" class="card_btn">View bundle</a>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
         <section class="card_section">
             <div class="card_section_content container">
                 <div class="card_section_align row align-items-center gy-5">
-                    <h1 class="card_section_title text-center">Why Choose Our Low Poly 3D Models for Your Game?</h1>
+                    <h1 class="card_section_title text-center">Why Choose Our Low Poly 3D Models for Games?</h1>
                     <div class="card_organizing d-flex rounded-2 text-center col-12 col-md-6 col-lg-4">
                         <div class="card_item card w-100 p-2">
                             <br>
@@ -142,7 +142,7 @@
                 <div class="section_category_container container">
                     <div class="section_category_align row gy-3">
                         <h1 class="section_category_title text-center">
-                            Explore Game-Ready 3D Character Categories Available Now:
+                            Explore Game-Ready Low Poly 3D Models for Games Categories Available Now:
                         </h1>
                         <div class="card_organizing_category rounded-2 text-center col-12 col-md-6 col-lg-4 h-100">
                             <a type="button" href="<?= BASE_URL ?>product/37" class="card-link text-decoration-none">
@@ -152,7 +152,7 @@
                                         <h5 class="card_title mb-2">
                                             "Formal" characters
                                         </h5>
-                                        <p class="card_description">These guys are smart as hell</p>
+                                        <p class="card_description">Good ones</p>
                                     </div>
                                 </div>
                             </a>
@@ -165,7 +165,7 @@
                                         <h5 class="card_title mb-2">
                                             "Random Npc" characters
                                         </h5>
-                                        <p class="card_description">Random people</p>
+                                        <p class="card_description">Random characters</p>
                                     </div>
                                 </div>
                             </a>
@@ -178,7 +178,7 @@
                                         <h5 class="card_title mb-2">
                                             "Young" characters
                                         </h5>
-                                        <p class="card_description">Young people</p>
+                                        <p class="card_description">Like Young people in 90's</p>
                                     </div>
                                 </div>
                             </a>
@@ -202,7 +202,7 @@
                                 Special Offer
                             </span>
                             <h5 class="section_title" id="section_title">
-                                Bundle of 55 3D model characters for <del>$55</del> <strong>$27</strong> USD
+                                Bundle of 55 Low Poly 3D Models for Games for <del>$55</del> <strong>$27</strong> USD
                             </h5>
                             <p class="section_timer active text-center" id="timer"></p>
                             <a href="<?= BASE_URL ?>product/62" class="section_link">View bundle</a>
@@ -272,7 +272,7 @@
             </h1>
             <div class="section_finalcall_container">
                 <p class="section_finalcall_text text-center" id="mensagens">
-                    Start to explore 50+ 3D models
+                    Start to explore 50+ Low Poly 3D Models for Games
                 </p>
                 <div class="finalcall_btn_group">
                     <a class="section_finalcall_btn1" href="store" type="button" id="btn1">

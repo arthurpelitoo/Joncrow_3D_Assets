@@ -2,6 +2,8 @@
 
     $idioma = 'en'; // ou 'pt'
 
+
+    //pra salvar as imagens do json e dar caminhos absolutos.
     define('BASE_URL', '/');
 
         if (isset($_GET["param"])) {
@@ -39,33 +41,35 @@
             exit;
         }
 
-    usort($dados, function($a, $b){
-        return $b['id'] - $a['id'];
-    });
+    //codigo de logica pra pagina news.
+        usort($dados, function($a, $b){
+            return $b['id'] - $a['id'];
+        });
 
-    // pega os 5 primeiros elementos, que agora são os de maior id
-    $latestNews = array_slice($dados, 0, 5);
+        // pega os 5 primeiros elementos, que agora são os de maior id
+        $latestNews = array_slice($dados, 0, 5);
 
-    $firstItem = $latestNews[0];
-    $ogTitle = htmlspecialchars($firstItem['titulo'][$idioma]);
-    $ogDesc = htmlspecialchars($firstItem['descricao'][$idioma][0]);
-    $ogImage = $firstItem['imagem_card'];
+        $firstItem = $latestNews[0];
+        $ogTitle = htmlspecialchars($firstItem['titulo'][$idioma]);
+        $ogDesc = htmlspecialchars($firstItem['descricao'][$idioma][0]);
+        $ogImage = '/' . ltrim($firstItem['imagem_card'], '/');
 
     $siteBaseUrl = "https://joncrow.rf.gd";
+    //URL base para algumas imagens e itens.
 
     $seoMap = [
         "home" => [
-            "title" => "Low Poly 3D Models for Games – Characters, NPCs & Props | Joncrow Asset Store",
-            "description" => "Download royalty-free low poly 3D characters, NPCs and props optimized for Unity, Unreal, Godot, Blender and other engines. Game-ready assets, affordable pricing, indie-friendly.",
-            "keywords" => "Download royalty-free low poly 3D characters, NPCs and props optimized for Unity, Unreal, Godot, Blender and other engines. Game-ready assets, affordable pricing, indie-friendly.",
+            "title" => "Low Poly 3D Models for Games – Characters, creatures and buildings | Joncrow Asset Store",
+            "description" => "Download royalty-free low poly 3D characters, creatures and buildings optimized for Unity, Unreal, Godot, Blender and other engines. Game-ready assets, affordable pricing, indie-friendly.",
+            "keywords" => "Download royalty-free low poly 3D characters, creatures and buildings optimized for Unity, Unreal, Godot, Blender and other engines. Game-ready assets, affordable pricing, indie-friendly.",
             "author" => "Asset Store | Joncrow Asset Store",
-            "og_title" => "Low Poly 3D Models – Game-Ready Characters & Props | Joncrow Asset Store",
-            "og_description" => "Royalty-free low poly 3D assets optimized for Unity, Unreal, Godot and more. Build your games and prototypes with affordable, indie-friendly models.",
+            "og_title" => "Low Poly 3D Models for Games – Characters, creatures and buildings | Joncrow Asset Store",
+            "og_description" => "Download royalty-free low poly 3D characters, creatures and buildings optimized for Unity, Unreal, Godot, Blender and other engines. Game-ready assets, affordable pricing, indie-friendly.",
             "og_image" => BASE_URL . "assets/main_page_images/banner.png",
             "og_url" => BASE_URL . "home",
             "twitter_card" => "summary_large_image",
             "twitter_title" => "Home | Joncrow Asset Store",
-            "twitter_description" => "Download royalty-free low poly 3D characters, NPCs and props optimized for Unity, Unreal, Godot, Blender and other engines. Game-ready assets, affordable pricing, indie-friendly.",
+            "twitter_description" => "Download royalty-free low poly 3D characters, creatures and buildings optimized for Unity, Unreal, Godot, Blender and other engines. Game-ready assets, affordable pricing, indie-friendly.",
             "twitter_image" => BASE_URL . "assets/main_page_images/banner.png"
         ],
 
@@ -126,7 +130,6 @@
 
     $seo = $seoMap[$page] ?? null;
 
-
 ?>
 
 <!DOCTYPE html>
@@ -135,6 +138,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="<?= BASE_URL ?>assets/all_pages_use_images/header/logoCentralizado.avif" type="image/x-icon">
+
+    <?php if($page === "product" && $idfound): ?>
+    <!-- JSON-LD do product (melhorar SEO) -->
+    <script type="application/ld+json">
+    <?= json_encode([
+        "@context" => "https://schema.org",
+        "@type" => "Product",
+        "name" => $item['titulo'][$idioma],
+        "image" => [$siteBaseUrl . $item['imagens'][2]],
+        "description" => $item['descricao'][$idioma][0],
+        "sku" => $item['id'],
+        "brand" => [
+            "@type" => "Organization",
+            "name" => "Joncrow Asset Store"
+        ],
+        "offers" => [
+            "@type" => "Offer",
+            "url" => $siteBaseUrl . "/product/" . $item['id'],
+            "priceCurrency" => "USD",
+            "price" => $item['preco'] ?? "0.00",
+            "availability" => "https://schema.org/InStock"
+        ]
+    ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT); ?>
+    </script>
+    <?php endif; ?>
+
+    <?php
+    $canonicalUrl = null;
+
+    if ($page === 'product' && $idfound) {
+        $canonicalUrl = $siteBaseUrl . "/product/" . $item['id'];
+    } elseif (in_array($page, ['home', 'store', 'contact', 'FAQ', 'news'])) {
+        $canonicalUrl = $siteBaseUrl . "/" . $page;
+    }
+
+    if ($canonicalUrl):
+    // O link canonical diz aos mecanismos de busca como o Google qual é a URL principal (canônica) de uma página — especialmente útil se o mesmo conteúdo puder ser acessado por múltiplas URLs.
+    ?>
+    <link rel="canonical" href="<?= htmlspecialchars($canonicalUrl) ?>">
+    <?php endif; ?>
+    
 <?php if($seo): ?>
     <title><?= htmlspecialchars($seo['title']) ?></title>
     <meta name="description" content="<?= htmlspecialchars($seo['description']) ?>">
@@ -146,15 +190,15 @@
     <meta property="og:type" content="<?= htmlspecialchars($seo['og_type']) ?>">
     <meta property="og:url" content="<?= htmlspecialchars($siteBaseUrl . $seo['og_url']) ?>">
     <meta property="og:image" content="<?= htmlspecialchars($siteBaseUrl . $seo['og_image']) ?>">
-    <meta property="og:image:width" content="1024">
-    <meta property="og:image:height" content="768">
+    <meta property="og:image:width" content="700">
+    <meta property="og:image:height" content="700">
 
     <meta name="twitter:card" content="<?= htmlspecialchars($seo['twitter_card']) ?>">
     <meta name="twitter:title" content="<?= htmlspecialchars($seo['twitter_title']) ?>">
     <meta name="twitter:description" content="<?= htmlspecialchars($seo['twitter_description']) ?>">
     <meta name="twitter:image" content="<?= htmlspecialchars($siteBaseUrl . $seo['twitter_image']) ?>">
-    <meta property="twitter:image:width" content="1024">
-    <meta property="twitter:image:height" content="768">
+    <meta property="twitter:image:width" content="700">
+    <meta property="twitter:image:height" content="700">
 
 <?php elseif($page == "product"): ?>
     <title><?= htmlspecialchars($item['titulo'][$idioma]) ?> | Joncrow Asset Store</title>
@@ -167,17 +211,18 @@
     <meta property="og:description" content="<?= htmlspecialchars($item['descricao'][$idioma][0]) ?>">
     <meta property="og:type" content="product">
     <meta property="og:url" content="<?= htmlspecialchars($siteBaseUrl . "/product/" . $item['id']) ?>">
-    <meta property="og:image" content="<?= htmlspecialchars($siteBaseUrl . $item['imagens'][2]) ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($siteBaseUrl . $item['imagens'][0]) ?>">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?= htmlspecialchars($item['titulo'][$idioma]) ?>">
     <meta name="twitter:description" content="<?= htmlspecialchars($item['descricao'][$idioma][0]) ?>">
-    <meta name="twitter:image" content="<?= htmlspecialchars($siteBaseUrl . $item['imagens'][2]) ?>">
-    <meta property="twitter:image:width" content="1024">
-    <meta property="twitter:image:height" content="768">
+    <meta name="twitter:image" content="<?= htmlspecialchars($siteBaseUrl . $item['imagens'][0]) ?>">
+    <meta property="twitter:image:width" content="700">
+    <meta property="twitter:image:height" content="700">
 
 <?php elseif($page == "news"): ?>
+    <title><?= htmlspecialchars($ogTitle) ?> | New Update - Joncrow Asset Store</title>
     <meta name="description" content="<?= $ogDesc ?>">
     <meta name="keywords" content="<?= $ogDesc ?>">
     <meta name="author" content="Asset Store | Joncrow Asset Store">
@@ -186,22 +231,17 @@
     <meta property="og:description" content="<?= $ogDesc ?>">
     <meta property="og:type" content="news and updates">
     <meta property="og:image" content="<?= htmlspecialchars($siteBaseUrl . $ogImage) ?>">
-    <meta property="og:image:width" content="1024">
-    <meta property="og:image:height" content="768">
-    <meta property="og:url" content=<?= htmlspecialchars($siteBaseUrl . "/news/")?>>
+    <meta property="og:url" content=<?= htmlspecialchars($siteBaseUrl . "/news")?>>
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?= $ogTitle ?> | New Update - Joncrow Asset Store">
     <meta name="twitter:description" content="<?= $ogDesc ?>">
     <meta name="twitter:image" content="<?= htmlspecialchars($siteBaseUrl . $ogImage) ?>">
-    <meta property="twitter:image:width" content="1024">
-    <meta property="twitter:image:height" content="768">
 
-    <title>Latest 3D Asset Updates – New Low Poly Models for Your Games | Joncrow Asset Store</title>
-    <meta name="description" content="See the latest updates, new 3D characters, props and game-ready low poly assets added to the Joncrow Asset Store. Always expanding and royalty-free.">
 <?php else: ?>
     <title>Joncrow Asset Store</title>
 <?php endif; ?>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <?php
 
