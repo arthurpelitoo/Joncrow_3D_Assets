@@ -2,12 +2,6 @@
 
 $idioma = 'en'; // ou 'pt'
 
-/*
-Atenção:
-Devido às restrições do InfinityFree, a lógica de redirecionamento bizarra e o uso do .htaccess não consigo fazer alterações em ambiente local.
-Teste de redirecionamento só é confiável em produção.
-*/
-
 //(!empty($_SERVER['HTTPS']) garante que nao está vazio, $_SERVER['HTTPS'] !== 'off' Evita falsos positivos de servidores que colocam 'off'.
 //se for https, define: $protocolo = 'https' ou se não for, $protocolo = 'http'.
 $protocolo = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
