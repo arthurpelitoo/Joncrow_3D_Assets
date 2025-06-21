@@ -16,6 +16,8 @@
 
     // <?= $index == 0 ? 'class="active"' : ''
     // condição ? se_verdadeiro : se_falso
+
+    $newsPath = ($dominio === 'localhost') ? '/siteJon/' : 'https://joncrow.rf.gd';
 ?>
 
 <?php
@@ -25,6 +27,7 @@ $ogDesc = htmlspecialchars($firstItem['descricao'][$idioma][0]);
 $ogImage = $firstItem['imagem_card'];
 ?>
 
+<img class="backgroundImage" src="<?= BASE_URL ?>assets/news_page_images/News_Background.avif" alt="News-BG">
 <div class="newsContainer container">
     <h1 class="newsTitle">
         Latest 3D Asset Updates & New Low Poly Models
@@ -39,7 +42,7 @@ $ogImage = $firstItem['imagem_card'];
         <div class="carousel-inner">
             <?php foreach($latestNews as $index => $item): ?>
                 <div class="carousel-item <?= $index == 0 ? 'active' : '' ?>">
-                        <img src="<?= $item['imagem_card'] ?>" alt="<?= htmlspecialchars($item['titulo'][$idioma]) ?>" class="d-block w-100">
+                        <img src="<?= $newsPath . $item['imagem_card'] ?>" alt="<?= htmlspecialchars($item['titulo'][$idioma]) ?>" class="d-block w-100">
                         <div class="carousel-caption">
                             <h5 class="itemTitle"><?= htmlspecialchars($item['titulo'][$idioma]) ?></h5>
                             <p class="itemParagraph"><?= htmlspecialchars($item['descricao'][$idioma][0]) ?></p>

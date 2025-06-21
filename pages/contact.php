@@ -1,4 +1,4 @@
-
+        <img class="backgroundImage" src="<?= BASE_URL ?>assets/contact_page_image/contactbackground1.avif" alt="Contact-BG">
         <div id="modal-container" class="modal-container"></div>
         <div id="modal-overlay" class="modal-overlay"></div>
         <section class="sectionSpace">
@@ -6,7 +6,7 @@
                 <h1 class="faixaTitle">
                     Send a Message
                 </h1>
-                <form action="https://formsubmit.co/joncraucolecoes@gmail.com" id="formId" method="POST" target="_blank" class="col-12 d-flex flex-column justify-content-center formContato" name="formContato">
+                <form action="https://formsubmit.co/joncraucolecoes@gmail.com" id="formId" method="POST" target="_blank" class="col-12 formContato" name="formContato">
                     
                     <fieldset class="step active">
                         <label for="referencia" class="labelForm">How did you find this website? *</label>

@@ -1,36 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-:root {
-    --backgroundscreencrt: #D8C9B4;
-    --mainColor: #000000;
-    --secondColor: #ffffff;
-    --cardColors: #121212;
-    --terciaryColor: #a259ff;
-    --accentHoverColor: #C084FC;
-    --titleMainColor: #FFFFFF;
-    --textColor: #FFFFFF;
-    --btnTextColor: #FFFFFF;
-    --btnTextColorhover: #000000;
-    --btnBackground: #000000;
-    --btnBackgroundhover: #FFFFFF;
-    --btnBackgroundCtaColor: #A259FF;
-    --btnBackgroundCtaHoverColor: #C084FC;
-    --font-title: "Press Start 2P", sans-serif, arial;
-    --font-default: "Poppins", arial, sans-serif;
-}
-
-@keyframes glow {
-  0% { box-shadow: 0 0 5px rgba(162, 89, 255, 0.2); }
-  50% { box-shadow: 0 0 15px rgba(161, 89, 255, 0.664); }
-  100% { box-shadow: 0 0 5px rgba(162, 89, 255, 0.2); }
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.1); opacity: 0.8; }
-    100% { transform: scale(1); opacity: 1; }
-}
 
 html, body {
     margin: 0;
@@ -44,158 +12,25 @@ html, body {
 }
 
 body{
-    background-image: url(/assets/contact_page_image/contactbackground1.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    background: linear-gradient(1deg, var(--cardColors), var(--mainColor));
 }
 
-/* @media (min-width: 1800px){
-    body{
-        background-image: url(/siteJon/assets/contact_page_image/contactbackground1.gif);
-    }
-} */
-
-* {
-    margin: 0;
-}
-
-.grain-effect {
-    background-color: var(--mainColor);
-    width: 100%;
-    height: 100vh;
-    top: 0; 
-    left: 0;
-    position: fixed;
-    z-index: 3;
-    opacity: 0.03;
-    pointer-events: none;
+main .backgroundImage{
+    width: 100vw;
+    height: 100%;
     object-fit: cover;
-}
-
-/* HEADER */
-#header {
-    width: 100%;
-    z-index: 4;
+    z-index: -1;
+    position: fixed;
     top: 0;
     left: 0;
-    background-color: var(--mainColor);
-    position: fixed;
-}
-
-#header .container {
-    width: 90%;
-    margin: auto;
-}
-
-#header .container .flex {
-    display: flex;
-}
-
-#header .container .flex .flex-col1 {
-    flex-basis: 50%;
-    display: flex;
-    align-items: center;
-}
-
-#header .container .flex .flex-col1 .headerLogo {
-    display: block;
-}
-
-#header .container .flex .flex-col1 .headerLogo img {
-    width: 150px;
-    height: 100px;
-}
-
-#header .container .flex .flex-col2 {
-    align-content: center;
-    flex-basis: 50%;
-    text-align: right;
-}
-
-#header .container .flex .flex-col2 .header-menu {
-    display: block;
-    text-align: right;
-    font-size: 2rem;
-    margin: 10px;
-    color: var(--textColor);
-    transition: ease-in-out 0.3s;
-}
-
-#header .container .flex .flex-col2 .header-menu:hover {
-    color: var(--accentHoverColor);
-}
-
-#header .container .flex .flex-col2 .header-nav {
-    display: none;
-    position: absolute;
-    left: 0;
-    width: 100%;
-    text-align: center;
-}
-
-#header .container .flex .flex-col2 .header-nav .nav-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-btn {
-    display: block;
-    background-color: var(--btnBackground);
-    color: var(--textColor) !important;
-    font-family: var(--font-default);
-    font-size: medium;
-    text-decoration: none;
-    transition: ease-in-out 0.3s;
-}
-
-#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-btn:hover {
-    background-color: var(--btnBackgroundhover);
-    color: var(--btnTextColorhover) !important;
-}
-
-#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .nav-btn-models {
-    display: block;
-    color: var(--textColor) !important;
-    background-color: var(--terciaryColor);
-    font-family: var(--font-default);
-    font-size: medium;
-    text-decoration: none;
-    transition: ease-in-out 0.3s;
-}
-
-#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .nav-btn-models:hover {
-    background-color: var(--accentHoverColor);
-    color: var(--btnTextColorhover) !important;
-}
-
-#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .dropdown-menu {
-    background-color: var(--btnBackground);
-    color: var(--btnTextColor);
-    text-align: center;
-    --bs-dropdown-padding-y: 0 !important;
-    --bs-dropdown-min-width: 0rem !important;
-}
-
-#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .dropdown-menu li .dropdown-item {
-    font-family: var(--font-default);
-    font-size: medium;
-    color: var(--btnTextColor);
-}
-
-#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .dropdown-menu li .dropdown-item:hover {
-    font-size: medium;
-    color: var(--btnTextColorhover);
-}
-
-#header .container .flex .flex-col2 .header-nav.active {
-    display: block;
 }
 
 .sectionSpace{
     position: relative;
     width: 100%;
+    display: flex;
+    justify-content: center;     /* horizontalmente */
+    align-items: center;         /* verticalmente */
     margin-top: 7rem;
 }
 
@@ -216,8 +51,10 @@ body{
 .sectionSpace .container .formContato{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     width: 100%;
+    min-height: auto;
     border-radius: 5px;
 }
 
@@ -231,11 +68,11 @@ body{
 .step.active{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     padding: 2rem;
     border-radius: 5px;
     gap: 10px;
-    width: fit-content;
     opacity: 1;
     background-color: var(--cardColors);
     transform: translateX(0);
@@ -246,7 +83,7 @@ body{
     width: 300px;
     background: var(--cardColors) !important;
     border-radius: 10px;
-    height: 10px;
+    min-height: 10px;
     margin-top: 20px;
     margin-bottom: 20px;
     overflow: hidden;
@@ -417,203 +254,6 @@ body{
     color: var(--accentHoverColor);
 }
 
-/* footer */
-
-.footer{
-    background: linear-gradient(1deg, var(--cardColors), var(--mainColor));
-    height: fit-content;
-    padding: 20px 0;
-    text-align: center;
-}
-
-.footer img{
-    width: 35%;
-}
-
-.footer a{
-    color: var(--terciaryColor);
-    font-size: 2.3em;
-    width: 2.3em;
-    text-decoration: none;
-    margin: 15px;
-    transition: all 0.3s;
-}
-
-.footer .footerClass .iconRedes a .itch-icon {
-    display: inline-block;
-    fill: var(--terciaryColor);
-    transition: all 0.3s;
-
-}
-
-.footer .footerClass .iconRedes a:hover .itch-icon{
-    fill: var(--accentHoverColor);
-}
-
-.footer a:hover{
-    color: var(--accentHoverColor);
-}
-
-.footer .iconRedes{
-    display: flex;
-    flex-wrap: wrap;
-    line-height: 30px;
-    color: var(--textColor);
-    font-family: var(--font-default);
-    align-items: center;
-    justify-content: center;
-}
-
-.footer .dev{
-    line-height: 30px;
-    color: var(--textColor);
-    font-family: var(--font-default);
-}
-
-.footer .footerClass{
-    text-align: center;
-    margin: auto;
-}
-
-/* responsive for pc and notebooks */
-
-@media (min-width: 1000px) {
-
-/* header */
-
-    /* ativar essa personalização apenas no caso de querer que fique invisivel */
-/* #header{
-    background-color: transparent;
-    transition: background-color 0.3s ease;
-} */
-
-/* #header.scrolled {
-    background-color: var(--mainColor);
-} */
-
-#header .container{
-    width: 1000px;
-}
-
-#header .container .flex .flex-col1{
-    flex-basis: 30%;
-}
-
-#header .container .flex .flex-col1 .headerLogo{
-    text-align: left;
-}
-                    
-#header .container .flex .flex-col1 .headerLogo img{
-    width: 200px;
-    height: 150px;
-}
-
-#header .container .flex .flex-col2{
-    flex-basis: 70%;
-    margin: auto;
-}
-
-#header .container .flex .flex-col2 .header-menu{
-    display: none;
-}
-
-#header .container .flex .flex-col2 .header-nav{
-    display: block;
-    position: relative;
-    text-align: right;
-}
-
-#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li{
-    margin-left: 5px;
-    margin-right: 5px;
-    display: inline-block;
-}
-
-#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li {
-    background-color: none;
-}
-
-#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li:hover {
-    background-color: none;
-}
-
-#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-btn{
-    border-radius: 5px;
-    padding: 0.5rem;
-}
-
-#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-btn:hover{
-    transform: translateY(-2px);
-}
-
-/* os que tem nav-div depois do nav-li são componentes do bootstrap por isso possuem uma classe extra.*/
-
-#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .nav-btn{
-    display: block;
-    color: var(--textColor) !important;
-    background-color: var(--btnBackground);
-    border-radius: 5px;
-    padding: 0.5rem;
-    font-family: var(--font-default);
-    font-size: medium;
-    text-decoration: none;
-    transition: ease-in-out 0.3s;
-}
-
-#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .nav-btn:hover{
-    transform: translateY(-2px);
-    background-color: var(--btnBackgroundhover);
-    color: var(--btnTextColorhover) !important;
-}
-
-#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .nav-btn-models{
-    border-radius: 5px;
-    padding: 0.5rem;
-}
-
-#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .nav-btn-models:hover {
-    transform: translateY(-2px);
-}
-
-
-#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .dropdown-menu{
-    background-color: var(--btnBackground);
-}
-
-#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .dropdown-menu li .dropdown-item{
-    font-family: var(--font-default);
-    font-size: medium;
-    color: var(--btnTextColor);
-}
-
-#header .container .flex .flex-col2 .header-nav .nav-ul .nav-li .nav-div .dropdown-menu li .dropdown-item:hover{
-    font-family: var(--font-default);
-    font-size: medium;
-    color: var(--btnTextColorhover);
-}
-
-/* sectionSpace */
-
-.sectionSpace{
-    margin-top: 10rem; /* desativar apenas no caso de querer que o header fique invisivel */
-}
-
-.sectionSpace .container{
-    padding: 2rem;
-}
-
-.socialMedia .contact_ways{
-    flex-direction: row;
-}
-
-/* footer */
-
-.footer img{
-    width: 15%;
-}
-
-}
-
 /* Personalização do Modal */
 
 .modal-container{
@@ -686,6 +326,20 @@ body{
 }
 
 @media (min-width: 1000px){
+
+/* sectionSpace */
+
+.sectionSpace{
+    margin-top: 10rem; /* desativar apenas no caso de querer que o header fique invisivel */
+}
+
+.sectionSpace .container{
+    padding: 2rem;
+}
+
+.socialMedia .contact_ways{
+    flex-direction: row;
+}
 
 .modal-container{
     display: flex;
@@ -764,36 +418,3 @@ body{
 }
 
 }
-
-/* fim da personalização do modal */
-
-
-/* Personalização da Scrollbar para navegadores WebKit (Chrome, Edge, Safari) NAO FUNCIONA NO FIREFOX */
-
-::-webkit-scrollbar {
-    width: 10px; /* Largura da barra */
-}
-
-/* Fundo da barra de rolagem */
-::-webkit-scrollbar-track {
-    background: var(--cardColors); /* Cor de fundo */
-}
-
-/* Barra de rolagem */
-::-webkit-scrollbar-thumb {
-    background: var(--terciaryColor); /* Cor da barra */
-    border-radius: 3px; /* Bordas arredondadas */
-    transition: ease-in-out 1s;
-}
-
-/* Quando o usuário passa o mouse */
-::-webkit-scrollbar-thumb:hover {
-    background: var(--accentHoverColor); /* Cor ao passar o mouse */
-}
-
-/* muda a cor da barra no FIREFOX */
-scrollbar-color{
-    background: var(--terciaryColor);
-}
-
-/* Fim da personalização da Scrollbar */

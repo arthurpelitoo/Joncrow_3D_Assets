@@ -1,6 +1,7 @@
 
 
 <section class="sectionFilter">
+    <img class="backgroundImage" src="<?= BASE_URL ?>assets/store_page_images/sectionFilter.avif" alt="Store-BG">
             <h1 class="sectionTitle">Asset Store</h1>
             <h2 class="sectionTitle2">Search for itens:</h2>
             <div class="filters">

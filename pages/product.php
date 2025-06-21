@@ -31,11 +31,11 @@ if (!$item && $idioma === "pt") {
     exit;
 }
 
+$productPath = ($dominio === 'localhost') ? '/siteJon/' : 'https://joncrow.rf.gd';
 
 ?>
 
-<main id="detailProduct">
-    <section class="banner"></section>
+    <img class="banner" height="200px" src="<?= BASE_URL . "assets/product_page_images/banner.avif" ?>" alt="Product-BG"></section>
     <article class="articleDetailProduct">
         <header class="product_title">
             <h1 id="productTitle"><?= htmlspecialchars($item['titulo'][$idioma]) ?></h1>
@@ -63,7 +63,7 @@ if (!$item && $idioma === "pt") {
                     <div class="carousel-inner">
                         <?php foreach ($item['imagens'] as $index => $img): ?>
                             <div class="carousel-item <?= $index == 0 ? 'active' : '' ?>">
-                                <img src="<?= $img ?>" onclick="openFullScreen(this)" class="galleryImage d-block w-100" alt="Slide <?= $index + 1 ?>">
+                                <img src="<?= $productPath . $img ?>" onclick="openFullScreen(this)" class="galleryImage d-block w-100" alt="Slide <?= $index + 1 ?>">
                             </div>
                         <?php endforeach; ?>
 
@@ -167,7 +167,6 @@ if (!$item && $idioma === "pt") {
     <div id="fullscreen-container" onclick="closeFullScreen()">
         <img id="fullscreen-img">
     </div>
-</main>
 
 <script>
 

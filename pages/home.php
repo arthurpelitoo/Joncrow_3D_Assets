@@ -3,6 +3,7 @@
             <source src="<?= BASE_URL ?>assets/main_page_images/graineffect.webm" type="video/webm">
         </video>
         <section class="banner_section">
+            <img class="backgroundImage" src="<?= BASE_URL ?>assets/main_page_images/banner.avif" alt="Home Banner-BG">
                     <div class="banner_content container">
                         <div class="banner_align row align-items-center gy-2">
                             <div class="banner_box d-flex flex-column rounded-2 col-12 col-md-5 align-items-center text-center justify-content-center">
