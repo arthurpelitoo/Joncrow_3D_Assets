@@ -6,7 +6,7 @@
         <div class="accordion-item">
             <h2 class="accordion-header" id="heading1">
                 <button class="accordion-button collapsed question-collapse-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
-                    Q: Does each character asset use a single texture or multiple textures? For example, does one model have a full body texture or are there separate textures for the head, hands, legs, and torso?
+                    Q: Does each character asset use a single texture or multiple textures?
                 </button>
             </h2>
             <div id="collapse1" class="accordion-collapse collapse questionCollapse" aria-labelledby="heading1" data-bs-parent="#faqAccordion">

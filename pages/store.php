@@ -58,24 +58,37 @@
             <div class="container">
                 <div class="productContainer row">
                     <?php
+                    // array_filter() percorre todos os itens do array $dados (que provavelmente é o seu JSON de itens)
+                    // A função anônima function ($item) define quais itens serão mantidos no array final.
                     $produtosFiltrados = array_filter($dados, function ($item) use ($idioma, $busca, $filtrosSelecionados, $precosSelecionados) {
                         $nome = strtolower($item['titulo'][$idioma]);
                         $categoria = strtolower($item['categoria'][$idioma]);
+                        $tags = array_map('strtolower', $item['tags']);
                         $preco = $item['preco'];
+
+                        // Converte nome, categoria e tags para minúsculas para facilitar a comparação com a busca (case-insensitive) e pega o preço.
 
                         $ehgratuito = !is_numeric($preco);
                         $precoTipo = $ehgratuito ? 'free' : 'paid';
+                        // Se o preço não for numérico (por exemplo, "free", "make your price"), considera como free, senão paid.
 
                         $precoOk = empty($precosSelecionados) || in_array($precoTipo, $precosSelecionados);
-                        $buscaOk = empty($busca) || strpos($nome, $busca) !== false || strpos($categoria, $busca) !== false;
+                        // Se não houver filtros de preço selecionados, passa tudo. Se houver, verifica se o tipo do preço (free ou paid) está nos filtros marcados.
                         $filtroOk = empty($filtrosSelecionados) || in_array($categoria, $filtrosSelecionados);
-
+                        // Verifica se a categoria do item está entre as selecionadas (ou se não há filtros).
+                        $buscaOk = empty($busca) ||
+                        strpos($nome, $busca) !== false ||
+                        strpos($categoria, $busca) !== false ||
+                        array_reduce($tags, fn($ok, $tag) => $ok || strpos($tag, $busca) !== false, false);
+                        // Verifica se a string digitada na busca aparece em: nome do item, categoria ou em alguma tag (usando array_reduce para testar todas)
                         return $buscaOk && $filtroOk && $precoOk;
+                        // Só mantém o item no array final se ele passar nos 3 testes ao mesmo tempo.
                     });
 
                     if (empty($produtosFiltrados)) {
-                        echo "<p style='color: var(--textColor);'>No products found.</p>";
+                        echo "<p class='noItemsFound'>No items found.</p>";
                     } else {
+                        echo "<p class='itemsFound'>Found itens:</p>";
                         foreach ($produtosFiltrados as $item):
                             $titulo = $item['titulo'][$idioma];
                             $categoria = $item['categoria'][$idioma];

@@ -17,7 +17,7 @@
     // <?= $index == 0 ? 'class="active"' : ''
     // condição ? se_verdadeiro : se_falso
 
-    $newsPath = ($dominio === 'localhost') ? '/siteJon/' : 'https://joncrow.rf.gd';
+    $newsPath = ($dominio === 'localhost') ? '/siteJon' : 'https://joncrow.rf.gd';
 ?>
 
 <?php
@@ -46,7 +46,7 @@ $ogImage = $firstItem['imagem_card'];
                         <div class="carousel-caption">
                             <h5 class="itemTitle"><?= htmlspecialchars($item['titulo'][$idioma]) ?></h5>
                             <p class="itemParagraph"><?= htmlspecialchars($item['descricao'][$idioma][0]) ?></p>
-                            <a class="itemBtn" href="/product/<?= $item['id'] ?>" target="_blank" rel="noopener noreferrer"><?= htmlspecialchars($item['btn'][$idioma]) ?></a>
+                            <a class="itemBtn" href="<?= $newsPath ?>/product/<?= $item['id'] ?>" target="_blank" rel="noopener noreferrer"><?= htmlspecialchars($item['btn'][$idioma]) ?></a>
                         </div>
                 </div>
             <?php endforeach; ?>

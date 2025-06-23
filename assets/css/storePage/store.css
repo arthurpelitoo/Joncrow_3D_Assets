@@ -206,6 +206,21 @@ html, body {
     flex-direction: row;
 }
 
+.noItemsFound{
+    font-family: var(--font-default);
+    color: var(--textColor);
+    font-size: xx-large;
+    text-align: center;
+    padding-bottom: 7rem;
+}
+
+.itemsFound{
+    font-family: var(--font-default);
+    color: var(--textColor);
+    font-size: xx-large;
+    text-align: center;
+}
+
 .card-link{
     text-decoration: none;
     color: inherit;
