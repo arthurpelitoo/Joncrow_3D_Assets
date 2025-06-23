@@ -127,8 +127,8 @@ $seoMap = [
 
     "FAQ" => [
         "title" => "FAQ | Joncrow Asset Store",
-        "description" => "Frequently asked questions about JonCrow's 3D models, file formats, licenses, supported software, and contact options. Get all the answers here.",
-        "keywords" => "Frequently asked questions about JonCrow's 3D models, file formats, licenses, supported software, and contact options. Get all the answers here.",
+        "description" => "Download royalty-free low poly 3D characters, creatures and buildings optimized for Unity, Unreal, Godot, Blender and other engines. Game-ready assets, affordable pricing, indie-friendly.",
+        "keywords" => "Download royalty-free low poly 3D characters, creatures and buildings optimized for Unity, Unreal, Godot, Blender and other engines. Game-ready assets, affordable pricing, indie-friendly.",
         "author" => "Asset Store | Joncrow Asset Store",
         "og_title" => "FAQ | Joncrow Asset Store",
         "og_description" => "Frequently asked questions about JonCrow's 3D models, file formats, licenses, supported software, and contact options.",
@@ -143,7 +143,23 @@ $seoMap = [
 
     "news" => [],
 
-    "product" => []
+    "product" => [],
+
+    "cart" => [
+        "title" => "Cart | Joncrow Asset Store",
+        "description" => "Frequently asked questions about JonCrow's 3D models, file formats, licenses, supported software, and contact options. Get all the answers here.",
+        "keywords" => "Frequently asked questions about JonCrow's 3D models, file formats, licenses, supported software, and contact options. Get all the answers here.",
+        "author" => "Asset Store | Joncrow Asset Store",
+        "og_title" => "Cart | Joncrow Asset Store",
+        "og_description" => "Frequently asked questions about JonCrow's 3D models, file formats, licenses, supported software, and contact options.",
+        "og_type" => "cart",
+        "og_image" => SITE_URL . "/" . "assets/main_page_images/banner.png",
+        "og_url" =>  SITE_URL . "/" . "cart",
+        "twitter_card" => "summary_large_image",
+        "twitter_title" => "Cart | Joncrow Asset Store",
+        "twitter_description" => "Frequently asked questions about JonCrow's 3D models, file formats, licenses, supported software, and contact options. Get all the answers here.",
+        "twitter_image" => SITE_URL . "/" . "assets/main_page_images/banner.png"
+    ]
 
 ];
 
@@ -293,6 +309,10 @@ $seo = $seoMap[$page] ?? null;
             "assets/css/newsPage/news.css",
             "assets/css/all_pages_use/header_and_footer.css"
         ],
+        "cart" => [
+            "assets/css/cartPage/cart.css",
+            "assets/css/all_pages_use/header_and_footer.css"
+        ],
         "erro404" => [
             "assets/css/erro404/erro.css",
             "assets/css/all_pages_use/header_and_footer.css"
@@ -329,6 +349,9 @@ $seo = $seoMap[$page] ?? null;
                             <li class="nav-li"><a class="nav-btn" href="<?= BASE_URL ?>contact" title="Contact">Contact</a></li>
                             <li class="nav-li"><a class="nav-btn" href="<?= BASE_URL ?>FAQ" title="FAQ">F.A.Q</a></li>
                             <li class="nav-li"><a class="nav-btn" href="<?= BASE_URL ?>news" title="News">News</a></li>
+                            <li class="nav-li">
+                                <a class="nav-btn" href="<?= BASE_URL ?>cart"><i class="fa-solid fa-cart-shopping"></i> <span id="cart-count">0</span></a>
+                            </li>
                             <li class="nav-li">
                                 <div class="nav-div"><a class="nav-btn-models" href="<?= BASE_URL ?>store" type="button">Asset Store</a></div>
                             </li>
@@ -396,7 +419,7 @@ $seo = $seoMap[$page] ?? null;
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script src="<?= BASE_URL ?>assets/js/all_pages_use/cartUtils.js"></script>
     <script>
         function showMenu() {
             let menu = document.querySelector('.header-nav');
@@ -407,13 +430,18 @@ $seo = $seoMap[$page] ?? null;
     <?php
     $jsMap = [
         "home" => [
-            "assets/js/all_pages_use/index.js",
             "assets/js/main_page/finalCall.js",
             "assets/js/main_page/updateTimer.js"
         ],
         "contact" => ["assets/js/contact/contact.js"],
         "store" => ["assets/js/store/storeFilter.js"],
-        "product" => ["assets/js/product/product.js"]
+        "product" => [
+            "assets/js/product/product.js",
+            "assets/js/product/cart.js"
+        ],
+        "cart" => [
+            "assets/js/cart/loadcart.js"
+        ],
     ];
 
     if (isset($jsMap[$page])) {

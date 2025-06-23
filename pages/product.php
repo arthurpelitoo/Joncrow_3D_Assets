@@ -31,7 +31,7 @@ if (!$item && $idioma === "pt") {
     exit;
 }
 
-$productPath = ($dominio === 'localhost') ? '/siteJon/' : 'https://joncrow.rf.gd';
+$productPath = ($dominio === 'localhost') ? '/siteJon' : 'https://joncrow.rf.gd';
 
 ?>
 
@@ -97,13 +97,14 @@ $productPath = ($dominio === 'localhost') ? '/siteJon/' : 'https://joncrow.rf.gd
                 <a class="productBuyLink" href="<?= htmlspecialchars($item['link_do_pagamento']) ?>" type="button">
                     <?= htmlspecialchars($item['btnPurchase'][$idioma]) ?>
                 </a>
+                <button class="btn-add-cart" type="button" data-id="<?= $item['id'] ?>" data-cardimg="<?= $productPath . $item['imagem_card'] ?>" data-btntext="<?= htmlspecialchars($item['btnPurchase'][$idioma]) ?>" data-title="<?= htmlspecialchars($item['titulo'][$idioma]) ?>" data-link="<?= htmlspecialchars($item['link_do_pagamento']) ?>" data-price="<?= $item['preco'] ?>"><i class="fa-solid fa-cart-plus"></i> Add</button>
                 <p class="productLicence"><?= htmlspecialchars($item['licenca']) ?></p>
 
                 <?php if (!empty($item['serie']) && !empty($item['serielink'])): ?>
                     <div class="collectionContainer">
-                        <p class="serieParagraphStyle"> <?= $idioma == 'pt' ? "Esse item é da série de coleção" : "This item is from the collection" ?> <?= $item['serie'] ?>:</p>
+                        <p class="serieParagraphStyle"> <?= $idioma == 'pt-br' ? "Esse item é da série de coleção" : "This item is from the collection" ?> <?= $item['serie'] ?>:</p>
                         <a href="<?= $item['serielink'] ?>" target="_blank" rel="noopener noreferrer">
-                            <?= $idioma == 'pt' ? "Clique aqui para ver a coleção completa" : "Click here to see the full collection" ?>
+                            <?= $idioma == 'pt-br' ? "Clique aqui para ver a coleção completa" : "Click here to see the full collection" ?>
                         </a>
                     </div>
                 <?php endif; ?>

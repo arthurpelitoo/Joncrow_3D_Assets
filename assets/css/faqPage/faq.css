@@ -41,7 +41,7 @@ main .backgroundImage{
 }
 
 .accordion-item{
-    width: 80vw;
+    width: 50vw;
     background-color: var(--cardColors) !important;
     position: relative;
     z-index: 3;
@@ -58,7 +58,7 @@ main .backgroundImage{
 }
 
 .question-collapse-btn{
-    width: 80vw;
+    width: 50vw;
     border: 0;
     display: block;
     color: var(--textColor) !important;

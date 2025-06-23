@@ -27,7 +27,7 @@ html, body {
     padding-top: 3rem;
     padding-bottom: 3rem; 
     margin-top: 6rem;
-    overflow: hidden;
+    /* overflow: hidden; */
     z-index: 1;
 }
 
@@ -80,25 +80,62 @@ html, body {
     z-index: 4;
 }
 
-.filters .searchInput{
+.filters .searchbar{
+    display: flex;
+    width: 60vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.filters .searchbar .searchInput{
     font-family: var(--font-default);
     color: var(--textColor);
     background-color: var(--cardColors);
     border: 5px solid var(--terciaryColor);
-    height: 40px;
     width: 60vw;
-    border-radius: 5px;
-    text-align: center;
+    height: 40px;
+    align-content: center;
+    border-radius: 5px 0px 0px 5px;
+    text-align: left;
+    padding-left: 5px;
     transition: all 0.3s;
     z-index: 4;
 }
 
-.filters .searchInput:hover{
+@media (max-width: 425px){
+    .filters .searchbar .searchInput{
+        width: 45vw;
+    }
+}
+
+.filters .searchbar .searchInput:hover{
     border: 5px solid var(--accentHoverColor);
 }
 
-.filters .searchInput::placeholder{
+.filters .searchbar .searchInput::placeholder{
+    text-align: left;
+}
+
+.filters .searchbar .searchInputConfirm{
+    margin-left: 5px;
+    width: 40px;
+    height: 40px;
+    align-content: center;
     text-align: center;
+    border: 0;
+    /* border-radius: 0px 5px 5px 0px; */
+    border-radius: 5px;
+    color: var(--textColor) !important;
+    background-color: var(--terciaryColor);
+    text-decoration: none;
+    transition: ease-in-out 0.3s;
+    z-index: 4;
+    animation: glow 2s infinite ease-in-out;
+}
+
+.filters .searchbar .searchInputConfirm:hover{
+    background-color: var(--accentHoverColor);
+    color: var(--btnTextColorhover) !important;
 }
 
 .checkboxFilterContainer{
@@ -130,7 +167,7 @@ html, body {
     background-color: var(--btnBackground);
     color: var(--btnTextColor);
     text-align: center;
-    z-index: 5;
+    z-index: 6;
     --bs-dropdown-padding-y: 0 !important;
     --bs-dropdown-min-width: 0rem !important;
 }
@@ -160,7 +197,8 @@ html, body {
     width: 100%;
     position: relative;
     padding-top: 2rem;
-    padding-bottom: 3rem; 
+    padding-bottom: 3rem;
+    z-index: 0; 
 }
 
 .sectionProduct .productContainer{
@@ -266,7 +304,7 @@ html, body {
         rgb(0, 0, 0) 0%,
         rgba(255, 255, 255, 0.2) 25%,
         rgba(255, 255, 255, 0.12) 75%,
-        rgba(0, 0, 0, 0.8) 100%
+        rgb(0, 0, 0) 100%
     );
     inset: 0px;
     content: "";
@@ -275,8 +313,8 @@ html, body {
     z-index: 3;
 }
 
-.filters .searchInput{
-    width: 30vw;
+.filters .searchbar .searchInput{
+    width: 20vw;
 }
 
 /* sectionProduct */

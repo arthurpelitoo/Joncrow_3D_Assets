@@ -157,6 +157,27 @@ html, body {
     color: var(--btnTextColorhover);
 }
 
+.btn-add-cart{
+    align-content: center;
+    text-align: center;
+    border: 0;
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin-bottom: 0.5em;
+    background-color: transparent;
+    color: var(--btnTextColor) !important;
+    font-family: var(--font-default);
+    text-decoration: none;
+    transition: ease-in-out 0.3s;
+    pointer-events: visible;
+    z-index: 5;
+}
+
+.btn-add-cart:hover{
+    background-color: var(--btnBackgroundhover);
+    color: var(--btnTextColorhover) !important;
+}
+
 .articleDetailProduct .productOrganization .product_info .productLicence{
     color: var(--textColor);
     font-family: var(--font-default);
